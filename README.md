@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/mcross1882/geocoder.svg?branch=master)](https://travis-ci.org/mcross1882/geocoder)
+
 Geocoder
 ========
 
@@ -11,6 +13,7 @@ To build simply run the following `sbt` commands.
 $ sbt clean compile test doc assembly
 ```
 
+*This library requires scala 2.11.X to compile*  
 *API Documentation will be generated in `target/scala-2.11/api/`*
 
 ### Usage
