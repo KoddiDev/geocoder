@@ -1,6 +1,8 @@
 package com.github.mcross1882.geocoder
 
-import scalaj.http.{Http, HttpRequest}
+import java.net.{URL, URLEncoder}
+import java.io.InputStream
+import scala.io.Source
 import com.owlike.genson.defaultGenson.{toJson, fromJson}
 
 class InvalidLocationException(message: String) extends Exception(message)
@@ -89,8 +91,8 @@ class Geocoder(apiUrl: String, apiKey: Option[String]) {
     }
 
     private def sendRequest(searchParam: String, searchValue: String): MapComponent = {
-        val request = buildRequest(searchParam, searchValue)
-        val response = fromJson[MapsResponse](request.asString.body)
+        val url = createURL(searchParam, searchValue)
+        val response = doGetRequest(url)
         if (Geocoder.API_SUCCESS != response.status) {
             throw new InvalidLocationException(s"${searchParam.capitalize} '${searchValue}' could not be geocoded.")
         }
@@ -102,13 +104,37 @@ class Geocoder(apiUrl: String, apiKey: Option[String]) {
         results.head
     }
 
-    private def buildRequest(searchParam: String, searchValue: String): HttpRequest = {
-        val request = Http(apiUrl).param(searchParam, searchValue)
+    private def createURL(searchParam: String, searchValue: String): URL = {
+        val builder = new StringBuilder(apiUrl)
+        builder.append("?")
+        builder.append(searchParam)
+        builder.append("=")
+        builder.append(URLEncoder.encode(searchValue, "UTF-8"))
         apiKey match {
-            case Some(key) => request.param(Geocoder.API_PARAM_KEY, key)
+            case Some(key) => {
+                builder.append("&")
+                builder.append(Geocoder.API_PARAM_KEY)
+                builder.append("=")
+                builder.append(URLEncoder.encode(key, "UTF-8"))
+            }
             case None => // noop
         }
-        request
+
+        new URL(builder.toString)
+    }
+
+    private def doGetRequest(url: URL): MapsResponse = {
+        var result: String = ""
+        var stream: InputStream = null
+        try {
+            stream = url.openStream
+            result = Source.fromInputStream(stream).mkString
+        } finally {
+            if (null != stream) {
+                stream.close
+            }
+        }
+        fromJson[MapsResponse](result)
     }
 }
 
