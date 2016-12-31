@@ -39,10 +39,13 @@ To perform latitude/longitude lookups simply provide a formatted address.
 
 ```scala
 // Lookup a location with a formatted address string
-val location = geo.lookup("2821 W 7th St, Fort Worth, TX")
+geo.lookup("2821 W 7th St, Fort Worth, TX") match {
+    case Some(location) => // do something...
+    case None => // Lookup produced no results
+}
 
 // If you need more granular control then the address object can be used
-val location = geo.lookup(
+val locationQuery = geo.lookup(
     Address("2821 W 7th St", "Fort Worth", "TX", None, None)
 )
 
@@ -53,9 +56,10 @@ Performing reverse lookups is just as easy.
 
 ```scala
 // Lookup an address by latitude/longitude
-val address = geo.reverseLookup(32.857, -96.748)
-
-println(address.toString)
+geo.reverseLookup(32.857, -96.748) match {
+    case Some(address) => println(address)
+    case None => println("Failed to find any addresses")
+}
 ```
 
 ### Other Related Projects
