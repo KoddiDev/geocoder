@@ -2,42 +2,43 @@ package com.github.mcross1882.geocoder
 
 import java.io.InputStream
 import scala.xml.{NodeSeq, XML}
+import scala.io.Source
 
 class InvalidResponseException(message: String) extends Exception(message)
 
-/** Parses Google Maps XML responses and converts them into [[com.github.mcross1882.geocoder.MapResults]].
+/** Parses Google Maps XML responses and converts them into [[com.github.mcross1882.geocoder.Response]].
  *
  * @see https://developers.google.com/maps/documentation/geocoding/intro#Results
  */
 class ResponseParser {
-    /** Parses an input stream containing XML data and converts it to a [[com.github.mcross1882.geocoder.MapResults]].
+    /** Parses an input stream containing XML data and converts it to a [[com.github.mcross1882.geocoder.Response]].
      *
      * The XML input should be welformed and not contain any undefined entities.
      *
      * @param stream a stream containing XML data
-     * @return an immutable MapResults instance
+     * @return an immutable Response instance
      */ 
-    def parse(stream: InputStream): MapResults = {
+    def parse(stream: InputStream): Response = {
         val root = XML.load(stream)
-        MapResults(
+        Response(
             text(root, "status"),
             readResults(root \ "result"),
             optional(root, "error_message")
         )
     }
 
-    private def readResults(node: NodeSeq): Array[MapComponent] = {
+    private def readResults(node: NodeSeq): Seq[Result] = {
         node.map{ result =>
-            MapComponent(
+            Result(
                 text(result, "place_id"),
                 text(result, "formatted_address"),
                 readGeometry(result),
                 readAddressComponents(result),
                 readPostcodeLocalities(result),
                 boolean(result, "partial_match"),
-                Array(text(result, "type"))
+                Seq(text(result, "type"))
             )
-        }.toArray
+        }
     }
 
     private def readGeometry(node: NodeSeq): Geometry = {
@@ -58,22 +59,22 @@ class ResponseParser {
         Some(readGeometryBounds(node, "bounds"))
     }
 
-    private def readAddressComponents(node: NodeSeq): Array[AddressComponent] = {
+    private def readAddressComponents(node: NodeSeq): Seq[AddressComponent] = {
         (node \ "address_component").map{ component =>
             AddressComponent(
                 text(component, "long_name"),
                 text(component, "short_name"),
-                Array(text(component, "type"))
+                Seq(text(component, "type"))
             )
-        }.toArray
+        }
     }
 
-    private def readPostcodeLocalities(node: NodeSeq): Option[Array[String]] = {
+    private def readPostcodeLocalities(node: NodeSeq): Option[Seq[String]] = {
         val postcodes = (node \ "postcode_localities")
         if (postcodes.length <= 0) {
             return None
         }
-        Some(postcodes.map(_.text.trim).toArray)
+        Some(postcodes.map(_.text.trim))
     }
 
     private def readGeometryBounds(node: NodeSeq, key: String): GeometryBounds = {
@@ -107,7 +108,7 @@ class ResponseParser {
     private def text(node: NodeSeq, key: String): String = (node \ key).text.trim
 
     private def optional(node: NodeSeq, key: String): Option[String] = (node \ key).text.trim match {
-        case value if !value.isEmpty => Some(value)
+        case value: String if !value.isEmpty => Some(value)
         case _ => None
     }
 }

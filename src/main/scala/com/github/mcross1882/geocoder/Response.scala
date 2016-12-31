@@ -2,10 +2,10 @@ package com.github.mcross1882.geocoder
 
 /** Provides constants related to [[com.github.mcross1882.geocoder.Location]] */
 object Location {
-    val TYPE_ROOFTOP            = "ROOFTOP"
-    val TYPE_RANGE_INTERPOLATED = "RANGE_INTERPOLATED"
-    val GEOMETRIC_CENTER        = "GEOMETRIC_CENTER"
-    val APPROXIMATE             = "APPROXIMATE"
+    val ROOFTOP            = "ROOFTOP"
+    val RANGE_INTERPOLATED = "RANGE_INTERPOLATED"
+    val GEOMETRIC_CENTER   = "GEOMETRIC_CENTER"
+    val APPROXIMATE        = "APPROXIMATE"
 }
 
 /** Simple wrapper for storing latitude and longitude values
@@ -29,8 +29,7 @@ case class Location(latitude: Double, longitude: Double) {
  */
 case class GeometryBounds(northeast: Location, southwest: Location)
 
-/** High level geometry data related to the queried location.
- */
+/** High level geometry data related to the queried location. */
 case class Geometry(location: Location, locationType: String, viewport: GeometryBounds, bounds: Option[GeometryBounds])
 
 /** Provides constants for [[com.github.mcross1882.geocoder.AddressComponent]] */
@@ -73,25 +72,29 @@ object AddressComponent {
  *
  * AddressComponents can contain any part of the address field.
  * This includes street, city, state, etc.. the field type can
- * be determined by the {{{ types }}} array.
+ * be determined by the {{{ types }}} Seq.
  */
-case class AddressComponent(longName: String, shortName: String, types: Array[String])
+case class AddressComponent(longName: String, shortName: String, types: Seq[String])
 
 /** A collection of location and geometry data. */
-case class MapComponent(
+case class Result(
     placeId: String,
     formattedAddress: String,
     geometry: Geometry,
-    addressComponents: Array[AddressComponent],
-    postcodeLocalities: Option[Array[String]],
+    addressComponents: Seq[AddressComponent],
+    postcodeLocalities: Option[Seq[String]],
     partialMatch: Boolean,
-    types: Array[String]
-)
+    types: Seq[String])
 
 /** The Google Maps response wrapper
  *
  * This entity represents the JSON response returned from
  * the Google Maps API.
  */ 
-case class MapResults(status: String, components: Array[MapComponent], errorMessage: Option[String])
+case class Response(status: String, results: Seq[Result], errorMessage: Option[String]) {
+
+    val success: Boolean = status == "OK"
+
+    val hasNoResults: Boolean = status == "ZERO_RESULTS"
+}
 
