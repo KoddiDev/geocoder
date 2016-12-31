@@ -51,7 +51,7 @@ class Geocoder(apiUrl: String, apiKey: Option[String]) {
      * @param address a formatted string containing the address, city, and state
      * @return a location object containing the latitude/longitude values
      */
-    def lookup(address: String): Location = {
+    def lookup(address: String): Option[Location] = {
         lookup(Address.fromString(address))
     }
 
@@ -63,16 +63,18 @@ class Geocoder(apiUrl: String, apiKey: Option[String]) {
      * @param address the address to query
      * @return a location object containing the latitude/longitude values
      */
-    def lookup(address: Address): Location = {
-        val response = sendRequest(Geocoder.API_PARAM_ADDRESS, address.toString)
-        response.geometry.location
+    def lookup(address: Address): Option[Location] = {
+        sendRequest(Geocoder.API_PARAM_ADDRESS, address.toString) match {
+            case Some(component) => Some(component.geometry.location)
+            case None => None
+        }
     }
 
     /** Lookups an address for a latitude/longitude pair.
      *
      * @return an address object containing the street, city, and state
      */
-    def reverseLookup(latitude: Double, longitude: Double): Address = {
+    def reverseLookup(latitude: Double, longitude: Double): Option[Address] = {
         reverseLookup(Location(latitude, longitude))
     }
 
@@ -85,12 +87,14 @@ class Geocoder(apiUrl: String, apiKey: Option[String]) {
      * @param location a latitude/longitude pair to query
      * @return an address object containing the street, city, and state
      */
-    def reverseLookup(location: Location): Address = {
-        val response = sendRequest(Geocoder.API_PARAM_LATLNG, location.toString)
-        Address.fromString(response.formatted_address)
+    def reverseLookup(location: Location): Option[Address] = {
+        sendRequest(Geocoder.API_PARAM_LATLNG, location.toString) match {
+            case Some(component) => Some(Address.fromString(component.formatted_address))
+            case None => None
+        }
     }
 
-    private def sendRequest(searchParam: String, searchValue: String): MapComponent = {
+    private def sendRequest(searchParam: String, searchValue: String): Option[MapComponent] = {
         val url = createURL(searchParam, searchValue)
         val response = doGetRequest(url)
         if (Geocoder.API_SUCCESS != response.status) {
@@ -99,9 +103,9 @@ class Geocoder(apiUrl: String, apiKey: Option[String]) {
 
         val results = response.results
         if (results.length <= 0) {
-            throw new IllegalStateException(s"No results were returned from the API.")
+            return None
         }
-        results.head
+        Some(results.head)
     }
 
     private def createURL(searchParam: String, searchValue: String): URL = {
