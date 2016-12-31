@@ -12,8 +12,7 @@ object Geocoder {
     private val API_PARAM_LATLNG  = "latlng"
     private val API_PARAM_KEY     = "key"
 
-    /** Creates an anonymous Geocoder without an API key
-     */
+    /** Creates an anonymous Geocoder without an API key */
     def create(): Geocoder = new Geocoder(API_URL, None, new ResponseParser)
 
     /** Create a Geocoder with a given API Key
@@ -23,19 +22,25 @@ object Geocoder {
      *         the provided api key
      */
     def create(key: String): Geocoder = new Geocoder(API_URL, Some(key), new ResponseParser)
+
+    /** Create an AsyncGeocoder without an API key */
+    def createAsync(): AsyncGeocoder = new AsyncGeocoder(create)
+
+    /** Create an AsyncGeocoder with a given API Key
+     *
+     * @param key the API key created by the Geo API server
+     * @return a new AsyncGeocoder instance with requests bound to
+     *         the provided api key
+     */
+    def createAsync(key: String): AsyncGeocoder = new AsyncGeocoder(create(key))
 }
 
 /** Converts strings and addresses to latitude/longitude values.
  *
- * Latitude/Longitude values can be queried either with a raw string
- * or an Address case class. If a raw string is provided then the
- * [[com.github.mcross1882.geocoder.Address]] "fromString" method will be
- * used to construct the Address object. The Google Maps API is called
- * using the values from the address object and a Location object
- * containing the latitude and longitude are returned.
+ * Latitude/Longitude values can be queried with a formatted address.
+ * The Google Maps API is called using the values from the address 
+ * and a [[com.github.mcross1882.geocoder.Result]] instance is returned.
  *
- * Reverse lookups are also supported. These work in an identical manner
- * to Address -> Location lookups but the request is reversed.
  *
  * @param apiUrl the api endpoint used to send requests to
  * @param apiKey an optional key to use when making api requests
