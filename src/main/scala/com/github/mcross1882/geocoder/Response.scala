@@ -19,7 +19,7 @@ object Location {
  */
 case class Location(latitude: Double, longitude: Double) {
 
-    override def toString(): String = s"${lat},${lng}"
+    override def toString(): String = s"${latitude},${longitude}"
 }
 
 /** Bounding points the represent opposite edges of a square.
