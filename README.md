@@ -13,7 +13,6 @@ To build simply run the following `sbt` commands.
 $ sbt clean compile test doc assembly
 ```
 
-*This library requires scala 2.11.X to compile*  
 *API Documentation will be generated in `target/scala-2.11/api/`*
 
 ### Usage
@@ -39,27 +38,21 @@ To perform latitude/longitude lookups simply provide a formatted address.
 
 ```scala
 // Lookup a location with a formatted address string
-geo.lookup("2821 W 7th St, Fort Worth, TX") match {
-    case Some(location) => // do something...
-    case None => // Lookup produced no results
-}
+// Returns a MapResults object
+val result = geo.lookup("2821 W 7th St, Fort Worth, TX")
 
-// If you need more granular control then the address object can be used
-val locationQuery = geo.lookup(
-    Address("2821 W 7th St", "Fort Worth", "TX", None, None)
-)
+// Access the MapComponents geometry data to get the location
+val location = result.components.head.geometry.location
 
-println(s"Latitude: ${location.lat}, Longitude: ${location.lng}")
+println(s"Latitude: ${location.latitude}, Longitude: ${location.longitude}")
 ```
 
 Performing reverse lookups is just as easy.
 
 ```scala
 // Lookup an address by latitude/longitude
-geo.reverseLookup(32.857, -96.748) match {
-    case Some(address) => println(address)
-    case None => println("Failed to find any addresses")
-}
+// Reverse lookups also produce MapResults objects
+val result = geo.reverseLookup(32.857, -96.748)
 ```
 
 ### Other Related Projects

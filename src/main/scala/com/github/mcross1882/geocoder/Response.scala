@@ -17,7 +17,7 @@ object Location {
  * @param lat a floating point number representing the latitude
  * @param lng a floating point number representing the longitude
  */
-case class Location(lat: Double, lng: Double) {
+case class Location(latitude: Double, longitude: Double) {
 
     override def toString(): String = s"${lat},${lng}"
 }

@@ -9,32 +9,32 @@ class GeocoderSpec extends TestSpec {
         val result = geocoder.lookup("2821 West 7th St., Dallas, TX 76107, US")
         val location = result.components.head.geometry.location
 
-        loseAccuracy(location.lat) should be(33)
-        loseAccuracy(location.lng) should be(-97)
+        loseAccuracy(location.latitude) should be(33)
+        loseAccuracy(location.longitude) should be(-97)
     }
 
     it should "lookup an address without a zip code" in {
         val result = geocoder.lookup("2821 West 7th St., Dallas, TX, US")
         val location = result.components.head.geometry.location
 
-        loseAccuracy(location.lat) should be(33)
-        loseAccuracy(location.lng) should be(-97)
+        loseAccuracy(location.latitude) should be(33)
+        loseAccuracy(location.longitude) should be(-97)
     }
 
     it should "lookup an address without a country" in {
         val result = geocoder.lookup("2821 West 7th St., Dallas, TX 76107")
         val location = result.components.head.geometry.location
 
-        loseAccuracy(location.lat) should be(33)
-        loseAccuracy(location.lng) should be(-97)
+        loseAccuracy(location.latitude) should be(33)
+        loseAccuracy(location.longitude) should be(-97)
     }
 
     it should "lookup an address without a zip code or country" in {
         val result = geocoder.lookup("2821 West 7th St., Dallas, TX")
         val location = result.components.head.geometry.location
 
-        loseAccuracy(location.lat) should be(33)
-        loseAccuracy(location.lng) should be(-97)
+        loseAccuracy(location.latitude) should be(33)
+        loseAccuracy(location.longitude) should be(-97)
     }
 
     it should "throw an exception when an invalid address is given" in {
