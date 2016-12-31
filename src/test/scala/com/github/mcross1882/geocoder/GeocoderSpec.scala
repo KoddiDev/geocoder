@@ -5,7 +5,7 @@ class GeocoderSpec extends TestSpec {
 
     private val geocoder = Geocoder.create
 
-    "A Geocoder" should "lookup a given address and convert it to a location entity" in {
+    "A Geocoder" should "lookup a given address and produce a sequence of Results" in {
         val results = geocoder.lookup("2821 West 7th St., Dallas, TX 76107, US")
         val location = results.head.geometry.location
 
@@ -43,7 +43,7 @@ class GeocoderSpec extends TestSpec {
         }
     }
 
-    it should "reverse lookup lat/lng values and return an address entity" in {
+    it should "reverse lookup lat/lng values and return a sequence of Results" in {
         val results = geocoder.reverseLookup(32.7505842, -97.3574015)
         val address = results.head.formattedAddress
 
