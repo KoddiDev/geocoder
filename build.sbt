@@ -5,8 +5,7 @@ version := "1.0.0"
 scalaVersion := "2.11.8"
 
 libraryDependencies ++= Seq(
-    "com.owlike" % "genson" % "1.4",
-    "com.owlike" % "genson-scala_2.11" % "1.4",
+    "org.scala-lang.modules" %% "scala-xml" % "1.0.6",
     "org.scalactic" %% "scalactic" % "3.0.1" % "test",
     "org.scalatest" %% "scalatest" % "3.0.1" % "test"
 )

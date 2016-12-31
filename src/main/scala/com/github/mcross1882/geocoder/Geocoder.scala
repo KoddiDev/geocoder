@@ -2,14 +2,12 @@ package com.github.mcross1882.geocoder
 
 import java.net.{URL, URLEncoder}
 import java.io.InputStream
-import scala.io.Source
-import com.owlike.genson.defaultGenson.{toJson, fromJson}
 
 class InvalidLocationException(message: String) extends Exception(message)
 
 /** Factory for [[com.github.mcross1882.geocoder.Geocoder]] instances. */
 object Geocoder {
-    private val API_URL           = "https://maps.googleapis.com/maps/api/geocode/json"
+    private val API_URL           = "https://maps.googleapis.com/maps/api/geocode/xml"
     private val API_PARAM_ADDRESS = "address"
     private val API_PARAM_LATLNG  = "latlng"
     private val API_PARAM_KEY     = "key"
@@ -17,7 +15,7 @@ object Geocoder {
 
     /** Creates an anonymous Geocoder without an API key
      */
-    def create(): Geocoder = new Geocoder(API_URL, None)
+    def create(): Geocoder = new Geocoder(API_URL, None, new ResponseParser)
 
     /** Create a Geocoder with a given API Key
      *
@@ -25,7 +23,7 @@ object Geocoder {
      * @return a new Geocoder instance with requests bound to
      *         the provided api key
      */
-    def create(key: String): Geocoder = new Geocoder(API_URL, Some(key))
+    def create(key: String): Geocoder = new Geocoder(API_URL, Some(key), new ResponseParser)
 }
 
 /** Converts strings and addresses to latitude/longitude values.
@@ -42,39 +40,26 @@ object Geocoder {
  *
  * @param apiUrl the api endpoint used to send requests to
  * @param apiKey an optional key to use when making api requests
+ * @param responseParser an XML parser used to deconstruct the API response
  */
-class Geocoder(apiUrl: String, apiKey: Option[String]) {
-    /** Lookups a latitude/longitude values for a formatted address string.
-     *
-     * This calls {{{ Address.fromString(text) }}} to obtain the Address object.
-     *
-     * @param address a formatted string containing the address, city, and state
-     * @return a location object containing the latitude/longitude values
-     */
-    def lookup(address: String): Option[Location] = {
-        lookup(Address.fromString(address))
-    }
-
+class Geocoder(apiUrl: String, apiKey: Option[String], responseParser: ResponseParser) {
     /** Lookups a latitude/longitude values for a given address.
      *
      * A request to the Google Maps API is made to obtain the
      * correct latitude/longitude values.
      *
-     * @param address the address to query
+     * @param address a formatted string containing the address, city, and state
      * @return a location object containing the latitude/longitude values
      */
-    def lookup(address: Address): Option[Location] = {
-        sendRequest(Geocoder.API_PARAM_ADDRESS, address.toString) match {
-            case Some(component) => Some(component.geometry.location)
-            case None => None
-        }
+    def lookup(address: String): MapResults = {
+        sendRequest(Geocoder.API_PARAM_ADDRESS, address)
     }
 
     /** Lookups an address for a latitude/longitude pair.
      *
      * @return an address object containing the street, city, and state
      */
-    def reverseLookup(latitude: Double, longitude: Double): Option[Address] = {
+    def reverseLookup(latitude: Double, longitude: Double): MapResults = {
         reverseLookup(Location(latitude, longitude))
     }
 
@@ -87,25 +72,21 @@ class Geocoder(apiUrl: String, apiKey: Option[String]) {
      * @param location a latitude/longitude pair to query
      * @return an address object containing the street, city, and state
      */
-    def reverseLookup(location: Location): Option[Address] = {
-        sendRequest(Geocoder.API_PARAM_LATLNG, location.toString) match {
-            case Some(component) => Some(Address.fromString(component.formatted_address))
-            case None => None
-        }
+    def reverseLookup(location: Location): MapResults = {
+        sendRequest(Geocoder.API_PARAM_LATLNG, location.toString)
     }
 
-    private def sendRequest(searchParam: String, searchValue: String): Option[MapComponent] = {
+    private def sendRequest(searchParam: String, searchValue: String): MapResults = {
         val url = createURL(searchParam, searchValue)
         val response = doGetRequest(url)
         if (Geocoder.API_SUCCESS != response.status) {
-            throw new InvalidLocationException(s"${searchParam.capitalize} '${searchValue}' could not be geocoded.")
+            val message = response.errorMessage match {
+                case Some(error) => error
+                case None => s"${searchParam.capitalize} '${searchValue}' could not be geocoded."
+            }
+            throw new InvalidLocationException(message)
         }
-
-        val results = response.results
-        if (results.length <= 0) {
-            return None
-        }
-        Some(results.head)
+        response
     }
 
     private def createURL(searchParam: String, searchValue: String): URL = {
@@ -127,18 +108,18 @@ class Geocoder(apiUrl: String, apiKey: Option[String]) {
         new URL(builder.toString)
     }
 
-    private def doGetRequest(url: URL): MapsResponse = {
-        var result: String = ""
+    private def doGetRequest(url: URL): MapResults = {
+        var result: MapResults = null
         var stream: InputStream = null
         try {
             stream = url.openStream
-            result = Source.fromInputStream(stream).mkString
+            result = responseParser.parse(stream)
         } finally {
             if (null != stream) {
                 stream.close
             }
         }
-        fromJson[MapsResponse](result)
+        result
     }
 }
 
