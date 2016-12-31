@@ -55,6 +55,27 @@ Performing reverse lookups is just as easy.
 val result = geo.reverseLookup(32.857, -96.748)
 ```
 
+Aynchronous calls are also supported.
+
+```scala
+val geo = Geocoder.createAsync // Can also be created with a key
+
+// Returns a Future[Seq[Result]]
+val query = geo.lookup("2821 W 7th St, Fort Worth, TX")
+
+// Process the Seq[Result]
+query onSuccess { case results =>
+    for (result <- results) {
+        // do something...
+    }
+}
+
+// Handle any exceptions or failures
+query onFailure {
+    case e: Exception => println(e.getMessage)
+}
+```
+
 ### Other Related Projects
 
 These projects acheive the same purpose as this library and provide alternative options if this library is unsuitable.
