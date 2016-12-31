@@ -21,7 +21,7 @@ To create a `Geocoder` simply call the `Geocoder.create` function.
 
 ```scala
 // Bring the Geocoder into scope
-import com.github.mcross1882.geocoder.Geocoder
+import com.github.mcross1882.geocoder.{Geocoder, ResponseParser}
 
 // The factory object can be used to lazily create Geocoders
 val geo = Geocoder.create
@@ -31,7 +31,7 @@ val geoWithKey = Geocoder.create(MY_KEY)
 
 // And lastly if you need to manually create the Geocoder
 // that's supported as well.
-val customGeo = new Geocoder(API_URL, Some(API_KEY))
+val customGeo = new Geocoder(API_URL, Some(API_KEY), new ResponseParser)
 ```
 
 To perform latitude/longitude lookups simply provide a formatted address.
