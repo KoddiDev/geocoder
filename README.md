@@ -21,7 +21,7 @@ To create a `Geocoder` simply call the `Geocoder.create` function.
 
 ```scala
 // Bring the Geocoder into scope
-import com.github.mcross1882.geocoder.{Geocoder, ResponseParser}
+import com.github.mcross1882.geocoder.{Geocoder, Result, ResponseParser}
 
 // The factory object can be used to lazily create Geocoders
 val geo = Geocoder.create
@@ -38,11 +38,11 @@ To perform latitude/longitude lookups simply provide a formatted address.
 
 ```scala
 // Lookup a location with a formatted address string
-// Returns a MapResults object
-val result = geo.lookup("2821 W 7th St, Fort Worth, TX")
+// Returns a Seq[Result]
+val results = geo.lookup("2821 W 7th St, Fort Worth, TX")
 
 // Access the MapComponents geometry data to get the location
-val location = result.components.head.geometry.location
+val location = results.head.components.head.geometry.location
 
 println(s"Latitude: ${location.latitude}, Longitude: ${location.longitude}")
 ```
@@ -51,8 +51,29 @@ Performing reverse lookups is just as easy.
 
 ```scala
 // Lookup an address by latitude/longitude
-// Reverse lookups also produce MapResults objects
-val result = geo.reverseLookup(32.857, -96.748)
+// Reverse lookups also produce Seq[Result] objects
+val results = geo.reverseLookup(32.857, -96.748)
+```
+
+Aynchronous calls are also supported.
+
+```scala
+val geo = Geocoder.createAsync // Can also be created with a key
+
+// Returns a Future[Seq[Result]]
+val query = geo.lookup("2821 W 7th St, Fort Worth, TX")
+
+// Process the Seq[Result]
+query onSuccess { case results =>
+    for (result <- results) {
+        // do something...
+    }
+}
+
+// Handle any exceptions or failures
+query onFailure {
+    case e: Exception => println(e.getMessage)
+}
 ```
 
 ### Other Related Projects
