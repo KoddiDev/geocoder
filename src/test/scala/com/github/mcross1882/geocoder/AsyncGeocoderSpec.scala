@@ -17,6 +17,7 @@ class AsyncGeocoderSpec extends TestSpec {
             loseAccuracy(location.latitude) should be(33)
             loseAccuracy(location.longitude) should be(-97)
         }
+        Await.result(query, 5.seconds)
     }
 
     it should "lookup an address without a zip code" in {
@@ -27,6 +28,7 @@ class AsyncGeocoderSpec extends TestSpec {
             loseAccuracy(location.latitude) should be(33)
             loseAccuracy(location.longitude) should be(-97)
         }
+        Await.result(query, 5.seconds)
     }
 
     it should "lookup an address without a country" in {
@@ -36,6 +38,7 @@ class AsyncGeocoderSpec extends TestSpec {
             loseAccuracy(location.latitude) should be(33)
             loseAccuracy(location.longitude) should be(-97)
         }
+        Await.result(query, 5.seconds)
     }
 
     it should "lookup an address without a zip code or country" in {
@@ -45,12 +48,15 @@ class AsyncGeocoderSpec extends TestSpec {
             loseAccuracy(location.latitude) should be(33)
             loseAccuracy(location.longitude) should be(-97)
         }
+        Await.result(query, 5.seconds)
     }
 
     it should "trigger a failure when an invalid address is given" in {
-        geocoder.lookup("Nowhere NONE INVALID ADDRESS") onFailure {
+        val query = geocoder.lookup("NONE INVALID ADDRESS") 
+        query onFailure {
             case error => error should not be(null)
         }
+        Await.result(query, 5.seconds)
     }
 
     it should "reverse lookup lat/lng values and trigger a success" in {
@@ -59,12 +65,15 @@ class AsyncGeocoderSpec extends TestSpec {
             val address = results.head.formattedAddress
             address should be("2821 W 7th St, Fort Worth, TX 76107, USA")
         }
+        Await.result(query, 5.seconds)
     }
 
     it should "trigger a failure when an invalid lat/lng is given" in {
-        geocoder.reverseLookup(-900d, -900d) onFailure {
+        val query = geocoder.reverseLookup(-900d, -900d)
+        query onFailure {
             case error => error should not be(null)
         }
+        Await.result(query, 5.seconds)
     }
 
     private def loseAccuracy(value: Double): Long = Math.round(value)

@@ -7,10 +7,16 @@ class InvalidLocationException(message: String) extends Exception(message)
 
 /** Factory for [[com.github.mcross1882.geocoder.Geocoder]] instances. */
 object Geocoder {
-    private val API_URL           = "https://maps.googleapis.com/maps/api/geocode/xml"
-    private val API_PARAM_ADDRESS = "address"
-    private val API_PARAM_LATLNG  = "latlng"
-    private val API_PARAM_KEY     = "key"
+    val API_URL                  = "https://maps.googleapis.com/maps/api/geocode/xml"
+    val API_PARAM_ADDRESS        = "address"
+    val API_PARAM_COMPONENTS     = "components"
+    val API_PARAM_LANGUAGE       = "language"
+    val API_PARAM_REGION         = "region"
+    val API_PARAM_RESULT_TYPE    = "result_type"
+    val API_PARAM_LOCATION_TYPE  = "location_type"
+    val API_PARAM_BOUNDS         = "bounds"
+    val API_PARAM_LATLNG         = "latlng"
+    val API_PARAM_KEY            = "key"
 
     /** Creates an anonymous Geocoder without an API key */
     def create(): Geocoder = new Geocoder(API_URL, None, new ResponseParser)
@@ -55,8 +61,12 @@ class Geocoder(apiUrl: String, apiKey: Option[String], responseParser: ResponseP
      * @param address a formatted string containing the address, city, and state
      * @return an sequence of Result objects containing location and geometry data
      */
-    def lookup(address: String): Seq[Result] = {
-        sendRequest(Geocoder.API_PARAM_ADDRESS, address)
+    def lookup(address: String, params: Parameters = Parameters()): Seq[Result] = {
+        sendRequest(Geocoder.API_PARAM_ADDRESS, address, params)
+    }
+
+    def lookup(placeId: String, params: Parameters = Parameters()): Seq[Result] = {
+        sendRequest(Geocoder.API_PARAM_PLACE_ID, placeId, params)
     }
 
     /** Lookups an address given a location entity.
@@ -67,12 +77,17 @@ class Geocoder(apiUrl: String, apiKey: Option[String], responseParser: ResponseP
      *
      * @return an sequence of Result objects containing location and geometry data
      */
-    def reverseLookup(latitude: Double, longitude: Double): Seq[Result] = {
-        sendRequest(Geocoder.API_PARAM_LATLNG, Location(latitude, longitude).toString)
+    def lookup(latitude: Double, longitude: Double, params: Parameters = Parameters()): Seq[Result] = {
+        sendRequest(Geocoder.API_PARAM_LATLNG, Location(latitude, longitude).toString, params)
     }
 
-    private def sendRequest(searchParam: String, searchValue: String): Seq[Result] = {
-        val url = createURL(searchParam, searchValue)
+    def lookup(components: Seq[Component], params: Parameters = Parameters()): Seq[Result] = {
+        val encoded = components.map(_.toString).mkString("|")
+        sendRequest(Geocoder.API_PARAM_COMPONENTS, encoded, params)
+    }
+
+    private def sendRequest(searchParam: String, searchValue: String, params: Parameters): Seq[Result] = {
+        val url = createURL(searchParam, searchValue, params)
         val response = doGetRequest(url)
         if (!response.success) {
             val message = response.errorMessage match {
@@ -88,7 +103,7 @@ class Geocoder(apiUrl: String, apiKey: Option[String], responseParser: ResponseP
         response.results
     }
 
-    private def createURL(searchParam: String, searchValue: String): URL = {
+    private def createURL(searchParam: String, searchValue: String, params: Parameters): URL = {
         val builder = new StringBuilder(apiUrl)
         builder.append("?")
         builder.append(searchParam)
@@ -101,8 +116,9 @@ class Geocoder(apiUrl: String, apiKey: Option[String], responseParser: ResponseP
                 builder.append("=")
                 builder.append(URLEncoder.encode(key, "UTF-8"))
             }
-            case None => // noop
         }
+
+        params.appendToUrlBuilder(builder)
 
         new URL(builder.toString)
     }

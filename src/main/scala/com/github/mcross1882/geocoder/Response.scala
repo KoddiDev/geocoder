@@ -19,7 +19,9 @@ object Location {
  */
 case class Location(latitude: Double, longitude: Double) {
 
-    override def toString(): String = s"${latitude},${longitude}"
+    private val formattedString = s"${latitude},${longitude}"
+
+    override def toString(): String = formattedString
 }
 
 /** Bounding points the represent opposite edges of a square.
@@ -27,7 +29,12 @@ case class Location(latitude: Double, longitude: Double) {
  * @param northeast the upper right coordinate of the square
  * @param southwest the lower left coordinate of the square
  */
-case class GeometryBounds(northeast: Location, southwest: Location)
+case class GeometryBounds(northeast: Location, southwest: Location) {
+
+    private val formattedString = s"${northeast.latitude},${northeast.longitude}|${southwest.latitude},${southwest.longitude}"
+
+    override def toString(): String = formattedString
+}
 
 /** High level geometry data related to the queried location. */
 case class Geometry(location: Location, locationType: String, viewport: GeometryBounds, bounds: Option[GeometryBounds])
