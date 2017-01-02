@@ -42,7 +42,7 @@ To perform latitude/longitude lookups simply provide a formatted address.
 val results = geo.lookup("2821 W 7th St, Fort Worth, TX")
 
 // Access the MapComponents geometry data to get the location
-val location = results.head.components.head.geometry.location
+val location = results.head.geometry.location
 
 println(s"Latitude: ${location.latitude}, Longitude: ${location.longitude}")
 ```
