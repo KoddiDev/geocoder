@@ -44,7 +44,7 @@ class GeocoderSpec extends TestSpec {
     }
 
     it should "reverse lookup lat/lng values and return a sequence of Results" in {
-        val results = geocoder.reverseLookup(32.7505842, -97.3574015)
+        val results = geocoder.lookup(32.7505842, -97.3574015)
         val address = results.head.formattedAddress
 
         address should be("2821 W 7th St, Fort Worth, TX 76107, USA")
@@ -52,7 +52,7 @@ class GeocoderSpec extends TestSpec {
 
     it should "throw an exception when an invalid lat/lng is given" in {
         an [InvalidLocationException] should be thrownBy {
-            geocoder.reverseLookup(-900d, -900d)
+            geocoder.lookup(-900d, -900d)
         }
     }
 

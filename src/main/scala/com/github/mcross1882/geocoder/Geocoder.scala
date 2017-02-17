@@ -3,12 +3,11 @@ package com.github.mcross1882.geocoder
 import java.net.{URL, URLEncoder}
 import java.io.InputStream
 
-class InvalidLocationException(message: String) extends Exception(message)
-
 /** Factory for [[com.github.mcross1882.geocoder.Geocoder]] instances. */
 object Geocoder {
     val API_URL                  = "https://maps.googleapis.com/maps/api/geocode/xml"
     val API_PARAM_ADDRESS        = "address"
+    val API_PARAM_PLACE_ID       = "place_id"
     val API_PARAM_COMPONENTS     = "components"
     val API_PARAM_LANGUAGE       = "language"
     val API_PARAM_REGION         = "region"
@@ -18,8 +17,15 @@ object Geocoder {
     val API_PARAM_LATLNG         = "latlng"
     val API_PARAM_KEY            = "key"
 
+    /** Creates an anonymous Geocoder without an API key or extra parameters */
+    def create(): Geocoder = {
+        new Geocoder(API_URL, None, None, new ResponseParser)
+    }
+
     /** Creates an anonymous Geocoder without an API key */
-    def create(): Geocoder = new Geocoder(API_URL, None, new ResponseParser)
+    def create(parameters: Option[Parameters]): Geocoder = {
+        new Geocoder(API_URL, None, parameters, new ResponseParser)
+    }
 
     /** Create a Geocoder with a given API Key
      *
@@ -27,10 +33,18 @@ object Geocoder {
      * @return a new Geocoder instance with requests bound to
      *         the provided api key
      */
-    def create(key: String): Geocoder = new Geocoder(API_URL, Some(key), new ResponseParser)
+    def create(key: String, parameters: Option[Parameters]): Geocoder = {
+        new Geocoder(API_URL, Some(key), parameters, new ResponseParser)
+    }
+
+    def createAsync(): AsyncGeocoder = {
+        new AsyncGeocoder(create())
+    }
 
     /** Create an AsyncGeocoder without an API key */
-    def createAsync(): AsyncGeocoder = new AsyncGeocoder(create)
+    def createAsync(parameters: Option[Parameters]): AsyncGeocoder = {
+        new AsyncGeocoder(create(parameters))
+    }
 
     /** Create an AsyncGeocoder with a given API Key
      *
@@ -38,7 +52,9 @@ object Geocoder {
      * @return a new AsyncGeocoder instance with requests bound to
      *         the provided api key
      */
-    def createAsync(key: String): AsyncGeocoder = new AsyncGeocoder(create(key))
+    def createAsync(key: String, parameters: Option[Parameters]): AsyncGeocoder = {
+        new AsyncGeocoder(create(key, parameters))
+    }
 }
 
 /** Converts strings and addresses to latitude/longitude values.
@@ -50,9 +66,10 @@ object Geocoder {
  *
  * @param apiUrl the api endpoint used to send requests to
  * @param apiKey an optional key to use when making api requests
+ * @param parameters global parameters to apply to every request
  * @param responseParser an XML parser used to deconstruct the API response
  */
-class Geocoder(apiUrl: String, apiKey: Option[String], responseParser: ResponseParser) {
+class Geocoder(apiUrl: String, apiKey: Option[String], parameters: Option[Parameters], responseParser: ResponseParser) {
     /** Lookups a latitude/longitude values for a given address.
      *
      * A request to the Google Maps API is made to obtain the
@@ -61,12 +78,8 @@ class Geocoder(apiUrl: String, apiKey: Option[String], responseParser: ResponseP
      * @param address a formatted string containing the address, city, and state
      * @return an sequence of Result objects containing location and geometry data
      */
-    def lookup(address: String, params: Parameters = Parameters()): Seq[Result] = {
-        sendRequest(Geocoder.API_PARAM_ADDRESS, address, params)
-    }
-
-    def lookup(placeId: String, params: Parameters = Parameters()): Seq[Result] = {
-        sendRequest(Geocoder.API_PARAM_PLACE_ID, placeId, params)
+    def lookup(address: String): Seq[Result] = {
+        sendRequest(Geocoder.API_PARAM_ADDRESS, address)
     }
 
     /** Lookups an address given a location entity.
@@ -77,17 +90,31 @@ class Geocoder(apiUrl: String, apiKey: Option[String], responseParser: ResponseP
      *
      * @return an sequence of Result objects containing location and geometry data
      */
-    def lookup(latitude: Double, longitude: Double, params: Parameters = Parameters()): Seq[Result] = {
-        sendRequest(Geocoder.API_PARAM_LATLNG, Location(latitude, longitude).toString, params)
+    def lookup(latitude: Double, longitude: Double): Seq[Result] = {
+        sendRequest(Geocoder.API_PARAM_LATLNG, Location(latitude, longitude).toString)
     }
 
-    def lookup(components: Seq[Component], params: Parameters = Parameters()): Seq[Result] = {
+    /** Query the Geocoder API using Component entities.
+     *
+     * Components represent query parameters and are part of the
+     * Google Maps Geocing API. For simplicity predefined Component
+     * types are defined in [[com.github.mcross1882.geocoder.Component]]
+     */
+    def lookup(components: Seq[Component]): Seq[Result] = {
         val encoded = components.map(_.toString).mkString("|")
-        sendRequest(Geocoder.API_PARAM_COMPONENTS, encoded, params)
+        sendRequest(Geocoder.API_PARAM_COMPONENTS, encoded)
     }
 
-    private def sendRequest(searchParam: String, searchValue: String, params: Parameters): Seq[Result] = {
-        val url = createURL(searchParam, searchValue, params)
+    /** Query the Geocoder API using a Place ID
+     *
+     * @see lookup(address, parameters)
+     */
+    def lookupPlace(placeId: String): Seq[Result] = {
+        sendRequest(Geocoder.API_PARAM_PLACE_ID, placeId)
+    }
+
+    private def sendRequest(searchParam: String, searchValue: String): Seq[Result] = {
+        val url = createURL(searchParam, searchValue)
         val response = doGetRequest(url)
         if (!response.success) {
             val message = response.errorMessage match {
@@ -103,7 +130,7 @@ class Geocoder(apiUrl: String, apiKey: Option[String], responseParser: ResponseP
         response.results
     }
 
-    private def createURL(searchParam: String, searchValue: String, params: Parameters): URL = {
+    private def createURL(searchParam: String, searchValue: String): URL = {
         val builder = new StringBuilder(apiUrl)
         builder.append("?")
         builder.append(searchParam)
@@ -116,9 +143,13 @@ class Geocoder(apiUrl: String, apiKey: Option[String], responseParser: ResponseP
                 builder.append("=")
                 builder.append(URLEncoder.encode(key, "UTF-8"))
             }
+            case _ => // noop
         }
 
-        params.appendToUrlBuilder(builder)
+        parameters match {
+            case Some(params) => params.appendToUrlBuilder(builder)
+            case None => // noop
+        }
 
         new URL(builder.toString)
     }
@@ -129,6 +160,8 @@ class Geocoder(apiUrl: String, apiKey: Option[String], responseParser: ResponseP
         try {
             stream = url.openStream
             result = responseParser.parse(stream)
+        } catch {
+            case e: Exception => throw new ResponseParsingException(e)
         } finally {
             if (null != stream) {
                 stream.close

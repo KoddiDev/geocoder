@@ -19,18 +19,23 @@ sealed abstract class AbstractComponent(key: String, value: String) {
 
 case class Component(key: String, value: String) extends AbstractComponent(key, value) 
 
+/** Serializes to "route=value" */
 case class RouteComponent(value: String) extends AbstractComponent(Component.ROUTE, value)
 
+/** Serializes to "locality=value" */
 case class LocalityComponent(value: String) extends AbstractComponent(Component.LOCALITY, value)
 
+/** Serializes to "administrative_area=value" */
 case class AdministrativeAreaComponent(value: String) extends AbstractComponent(Component.ADMINISTRATIVE_AREA, value)
 
+/** Serializes to "postal_code=value" */
 case class PostalCodeComponent(value: String) extends AbstractComponent(Component.POSTAL_CODE, value)
 
+/** Serializes to "country=value" */
 case class CountryComponent(value: String) extends AbstractComponent(Component.COUNTRY, value)
 
 case class Parameters(
-    langauge: Option[String] = None,
+    language: Option[String] = None,
     region: Option[String] = None,
     bounds: Option[GeometryBounds] = None,
     resultType: Option[Seq[String]] = None,
