@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/mcross1882/geocoder.svg?branch=master)](https://travis-ci.org/mcross1882/geocoder)
-
 Geocoder
 ========
 
