@@ -1,4 +1,4 @@
-package com.github.mcross1882.geocoder
+package com.koddi.geocoder
 
 class ResponseParsingException(e: Exception) extends Exception(e)
 

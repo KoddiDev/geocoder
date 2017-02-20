@@ -1,4 +1,4 @@
-package com.github.mcross1882.geocoder
+package com.koddi.geocoder
 
 import java.io.InputStream
 import scala.xml.{NodeSeq, XML}
@@ -6,12 +6,12 @@ import scala.io.Source
 
 class InvalidResponseException(message: String) extends Exception(message)
 
-/** Parses Google Maps XML responses and converts them into [[com.github.mcross1882.geocoder.Response]].
+/** Parses Google Maps XML responses and converts them into [[com.koddi.geocoder.Response]].
  *
  * @see https://developers.google.com/maps/documentation/geocoding/intro#Results
  */
 class ResponseParser {
-    /** Parses an input stream containing XML data and converts it to a [[com.github.mcross1882.geocoder.Response]].
+    /** Parses an input stream containing XML data and converts it to a [[com.koddi.geocoder.Response]].
      *
      * The XML input should be welformed and not contain any undefined entities.
      *

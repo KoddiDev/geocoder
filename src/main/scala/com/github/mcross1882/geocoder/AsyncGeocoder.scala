@@ -1,4 +1,4 @@
-package com.github.mcross1882.geocoder
+package com.koddi.geocoder
 
 import scala.concurrent.{ExecutionContext, Future}
 
@@ -7,7 +7,7 @@ import scala.concurrent.{ExecutionContext, Future}
  * Simple composition class that executes the Geocoder methods within and
  * implicit {{{ scala.concurrent.ExecutionContext }}}. Exceptions are automatically
  * bubbled up to the {{{ onFailure }}} events. All {{{ scala.concurrent.Future[Result] }}}
- * contain the return values from the wrapper [[com.github.mcross1882.geocoder.Geocoder]].
+ * contain the return values from the wrapper [[com.koddi.geocoder.Geocoder]].
  *
  * @param geo a Geocoder instance to wrap with async callers
  */
@@ -17,7 +17,7 @@ class AsyncGeocoder(geo: Geocoder) {
 
     /** Perform an address lookup that returns a {{{ scala.concurrent.Future[Result] }}};
      *
-     * @see [[com.github.mcross1882.geocoder.Geocoder]]
+     * @see [[com.koddi.geocoder.Geocoder]]
      */
     def lookup(address: String)
         (implicit context: ExecutionContext): FutureResult = Future {
@@ -26,7 +26,7 @@ class AsyncGeocoder(geo: Geocoder) {
 
     /** Perform a latitude/longitude lookup that returns a {{{ scala.concurrent.Future[Result] }}}.
      *
-     * @see [[com.github.mcross1882.geocoder.Geocoder]]
+     * @see [[com.koddi.geocoder.Geocoder]]
      */
     def lookup(latitude: Double, longitude: Double)
         (implicit context: ExecutionContext): FutureResult = Future {
@@ -35,7 +35,7 @@ class AsyncGeocoder(geo: Geocoder) {
 
     /** Perform a component lookup that returns a {{{ scala.concurrent.Future[Result] }}}.
      *
-     * @see [[com.github.mcross1882.geocoder.Geocoder]]
+     * @see [[com.koddi.geocoder.Geocoder]]
      */
     def lookup(components: Seq[AbstractComponent])
         (implicit context: ExecutionContext): FutureResult = Future {
@@ -44,7 +44,7 @@ class AsyncGeocoder(geo: Geocoder) {
 
     /** Perform an place id lookup that returns a {{{ scala.concurrent.Future[Result] }}};
      *
-     * @see [[com.github.mcross1882.geocoder.Geocoder]]
+     * @see [[com.koddi.geocoder.Geocoder]]
      */
     def lookupPlace(placeId: String)
         (implicit context: ExecutionContext): FutureResult = Future {
