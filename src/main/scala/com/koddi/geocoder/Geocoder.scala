@@ -1,9 +1,9 @@
-package com.github.mcross1882.geocoder
+package com.koddi.geocoder
 
 import java.net.{URL, URLEncoder}
 import java.io.InputStream
 
-/** Factory for [[com.github.mcross1882.geocoder.Geocoder]] instances. */
+/** Factory for [[com.koddi.geocoder.Geocoder]] instances. */
 object Geocoder {
     val API_URL                  = "https://maps.googleapis.com/maps/api/geocode/xml"
     val API_PARAM_ADDRESS        = "address"
@@ -61,7 +61,7 @@ object Geocoder {
  *
  * Latitude/Longitude values can be queried with a formatted address.
  * The Google Maps API is called using the values from the address 
- * and a [[com.github.mcross1882.geocoder.Result]] instance is returned.
+ * and a [[com.koddi.geocoder.Result]] instance is returned.
  *
  *
  * @param apiUrl the api endpoint used to send requests to
@@ -98,7 +98,7 @@ class Geocoder(apiUrl: String, apiKey: Option[String], parameters: Option[Parame
      *
      * Components represent query parameters and are part of the
      * Google Maps Geocing API. For simplicity predefined Component
-     * types are defined in [[com.github.mcross1882.geocoder.Component]]
+     * types are defined in [[com.koddi.geocoder.Component]]
      */
     def lookup(components: Seq[AbstractComponent]): Seq[Result] = {
         val encoded = components.map(_.toString).mkString("|")

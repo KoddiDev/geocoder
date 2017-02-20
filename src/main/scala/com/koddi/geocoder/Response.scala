@@ -1,6 +1,6 @@
-package com.github.mcross1882.geocoder
+package com.koddi.geocoder
 
-/** Provides constants related to [[com.github.mcross1882.geocoder.Location]] */
+/** Provides constants related to [[com.koddi.geocoder.Location]] */
 object Location {
     val ROOFTOP            = "ROOFTOP"
     val RANGE_INTERPOLATED = "RANGE_INTERPOLATED"
@@ -39,7 +39,7 @@ case class GeometryBounds(northeast: Location, southwest: Location) {
 /** High level geometry data related to the queried location. */
 case class Geometry(location: Location, locationType: String, viewport: GeometryBounds, bounds: Option[GeometryBounds])
 
-/** Provides constants for [[com.github.mcross1882.geocoder.AddressComponent]] */
+/** Provides constants for [[com.koddi.geocoder.AddressComponent]] */
 object AddressComponent {
     val STREET_ADDRESS              = "street_address"
     val ROUTE                       = "route"

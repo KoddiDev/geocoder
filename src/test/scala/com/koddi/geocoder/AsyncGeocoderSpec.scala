@@ -1,4 +1,4 @@
-package com.github.mcross1882.geocoder
+package com.koddi.geocoder
 package test
 
 import scala.concurrent.Await
