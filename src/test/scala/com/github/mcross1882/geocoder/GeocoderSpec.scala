@@ -56,6 +56,28 @@ class GeocoderSpec extends TestSpec {
         }
     }
 
+    it should "lookup an address by component objects" in {
+        val results = geocoder.lookup(Seq(
+            PostalCodeComponent("76107"),
+            CountryComponent("us")
+        ))
+
+        val location = results.head.geometry.location
+
+        loseAccuracy(location.latitude) should be(33)
+        loseAccuracy(location.longitude) should be(-97)
+    }
+
+    it should "send custom parameters when performing lookups" in {
+        val custom = Geocoder.create(Parameters(region = Some("fr")))
+
+        val results = custom.lookup("2821 West 7th St., Dallas, TX 76107")
+        val location = results.head.geometry.location
+
+        loseAccuracy(location.latitude) should be(33)
+        loseAccuracy(location.longitude) should be(-97)
+    }
+
     private def loseAccuracy(value: Double): Long = Math.round(value)
 }
 

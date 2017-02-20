@@ -23,8 +23,8 @@ object Geocoder {
     }
 
     /** Creates an anonymous Geocoder without an API key */
-    def create(parameters: Option[Parameters]): Geocoder = {
-        new Geocoder(API_URL, None, parameters, new ResponseParser)
+    def create(parameters: Parameters): Geocoder = {
+        new Geocoder(API_URL, None, Some(parameters), new ResponseParser)
     }
 
     /** Create a Geocoder with a given API Key
@@ -33,7 +33,7 @@ object Geocoder {
      * @return a new Geocoder instance with requests bound to
      *         the provided api key
      */
-    def create(key: String, parameters: Option[Parameters]): Geocoder = {
+    def create(key: String, parameters: Option[Parameters] = None): Geocoder = {
         new Geocoder(API_URL, Some(key), parameters, new ResponseParser)
     }
 
@@ -42,7 +42,7 @@ object Geocoder {
     }
 
     /** Create an AsyncGeocoder without an API key */
-    def createAsync(parameters: Option[Parameters]): AsyncGeocoder = {
+    def createAsync(parameters: Parameters): AsyncGeocoder = {
         new AsyncGeocoder(create(parameters))
     }
 
@@ -52,7 +52,7 @@ object Geocoder {
      * @return a new AsyncGeocoder instance with requests bound to
      *         the provided api key
      */
-    def createAsync(key: String, parameters: Option[Parameters]): AsyncGeocoder = {
+    def createAsync(key: String, parameters: Option[Parameters] = None): AsyncGeocoder = {
         new AsyncGeocoder(create(key, parameters))
     }
 }
@@ -100,7 +100,7 @@ class Geocoder(apiUrl: String, apiKey: Option[String], parameters: Option[Parame
      * Google Maps Geocing API. For simplicity predefined Component
      * types are defined in [[com.github.mcross1882.geocoder.Component]]
      */
-    def lookup(components: Seq[Component]): Seq[Result] = {
+    def lookup(components: Seq[AbstractComponent]): Seq[Result] = {
         val encoded = components.map(_.toString).mkString("|")
         sendRequest(Geocoder.API_PARAM_COMPONENTS, encoded)
     }
