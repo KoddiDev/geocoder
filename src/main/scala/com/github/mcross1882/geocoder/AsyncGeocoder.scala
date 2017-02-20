@@ -37,7 +37,7 @@ class AsyncGeocoder(geo: Geocoder) {
      *
      * @see [[com.github.mcross1882.geocoder.Geocoder]]
      */
-    def lookup(components: Seq[Component])
+    def lookup(components: Seq[AbstractComponent])
         (implicit context: ExecutionContext): FutureResult = Future {
         geo.lookup(components)
     }(context)
