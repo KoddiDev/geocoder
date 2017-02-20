@@ -28,7 +28,7 @@ for more in depth examples, below is a high level overview on how to use the lib
 
 ```scala
 // Bring the Geocoder into scope
-import com.github.mcross1882.geocoder.{Geocoder, ResponseParser}
+import com.koddi.geocoder.{Geocoder, ResponseParser}
 
 // The factory object can be used to lazily create Geocoders
 val geo = Geocoder.create
@@ -65,7 +65,7 @@ Performing reverse lookups is just as easy.
 val results = geo.lookup(32.857, -96.748)
 
 // Lookups can also be done with Component objects
-// See com.github.mcross1882.geocoder.Component for more examples
+// See com.koddi.geocoder.Component for more examples
 val results = geo.lookup(Seq(CountryComponent("fr")))
 
 // Place IDs are also supported
