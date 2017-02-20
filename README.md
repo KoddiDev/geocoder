@@ -69,7 +69,7 @@ val results = geo.lookup(32.857, -96.748)
 val results = geo.lookup(Seq(CountryComponent("fr")))
 
 // Place IDs are also supported
-val results = geo.lookup("ChIJk4x9peBzToYRBYLucCG-eGY")
+val results = geo.lookupPlace("ChIJk4x9peBzToYRBYLucCG-eGY")
 ```
 
 Asynchronous calls are also supported.
