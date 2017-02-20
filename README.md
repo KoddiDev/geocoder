@@ -41,7 +41,7 @@ val geoWithParams = Geocoder.create(Parameters(region = Some("us")))
 
 // And lastly if you need to manually create the Geocoder
 // that's supported as well.
-val customGeo = new Geocoder(API_URL, Some(API_KEY), None new ResponseParser)
+val customGeo = new Geocoder(API_URL, Some(API_KEY), None, new ResponseParser)
 ```
 
 To perform latitude/longitude lookups simply provide a formatted address.
