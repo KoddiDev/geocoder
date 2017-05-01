@@ -11,7 +11,7 @@ easy to use geocoding functions that are thoroughly tested.
 - API Compliant
 - Easy to use and integrate
 
-### Usage
+### Including
 
 Include the following in your `build.sbt`
 
