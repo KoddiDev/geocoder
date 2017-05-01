@@ -11,6 +11,22 @@ easy to use geocoding functions that are thoroughly tested.
 - API Compliant
 - Easy to use and integrate
 
+### Usage
+
+Include the following in your `build.sbt`
+
+```
+libraryDependencies += "com.koddi" %% "geocoder" % "1.0.0"
+```
+
+And then import the classes into your code
+
+```scala
+import com.koddi.geocoder.Geocoder
+
+val geo = Geocoder.create
+```
+
 ### Building
 
 To build simply run the following `sbt` commands.
@@ -75,7 +91,8 @@ val results = geo.lookupPlace("ChIJk4x9peBzToYRBYLucCG-eGY")
 Asynchronous calls are also supported.
 
 ```scala
-val geo = Geocoder.createAsync // Can also be created with a key
+// Can also be created with a key
+val geo = Geocoder.createAsync
 
 // Returns a Future[Seq[Result]]
 val query = geo.lookup("2821 W 7th St, Fort Worth, TX")
