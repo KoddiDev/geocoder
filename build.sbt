@@ -34,3 +34,39 @@ def scalatest(scalaVersion: String) = {
     }) % "test")
 }
 
+publishMavenStyle := true
+
+publishArtifact in Test := false
+
+pomIncludeRepository := { _ => false }
+
+licenses := Seq("MIT-style" -> url("http://www.opensource.org/licenses/mit-license.php"))
+
+homepage := Some(url("https://koddidev.github.io/geocoder/"))
+
+sonatypeProfileName := "com.koddi"
+
+scmInfo := Some(
+    ScmInfo(
+        url("https://github.com/KoddiDev/geocoder"),
+        "scm:git@github.com:KoddiDev/geocoder.git"
+    )
+)
+
+developers := List(
+    Developer(
+        id    = "geocoder",
+        name  = "Koddi Developers",
+        email = "dev@koddi.com",
+        url   = url("http://www.koddi.com")
+    )
+)
+
+publishTo := {
+    val nexus = "https://oss.sonatype.org/"
+        if (isSnapshot.value)
+            Some("snapshots" at nexus + "content/repositories/snapshots")
+        else
+            Some("releases"  at nexus + "service/local/staging/deploy/maven2")
+}
+
