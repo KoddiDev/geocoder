@@ -98,15 +98,13 @@ val geo = Geocoder.createAsync
 val query = geo.lookup("2821 W 7th St, Fort Worth, TX")
 
 // Process the Seq[Result]
-query onSuccess { case results =>
-    for (result <- results) {
-        // do something...
+query onComplete {
+    case Success(results) => {
+        for (result <- results) {
+            // do something...
+        }
     }
-}
-
-// Handle any exceptions or failures
-query onFailure {
-    case e: Exception => println(e.getMessage)
+    case Failure(error) => println(error.getMessage)
 }
 ```
 

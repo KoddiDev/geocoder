@@ -113,7 +113,7 @@ class Geocoder(apiUrl: String, apiKey: Option[String], parameters: Option[Parame
         sendRequest(Geocoder.API_PARAM_PLACE_ID, placeId)
     }
 
-    private def sendRequest(searchParam: String, searchValue: String): Seq[Result] = {
+    protected def sendRequest(searchParam: String, searchValue: String): Seq[Result] = {
         val url = createURL(searchParam, searchValue)
         val response = doGetRequest(url)
         if (!response.success) {
@@ -130,7 +130,7 @@ class Geocoder(apiUrl: String, apiKey: Option[String], parameters: Option[Parame
         response.results
     }
 
-    private def createURL(searchParam: String, searchValue: String): URL = {
+    protected def createURL(searchParam: String, searchValue: String): URL = {
         val builder = new StringBuilder(apiUrl)
         builder.append("?")
         builder.append(searchParam)
@@ -154,7 +154,7 @@ class Geocoder(apiUrl: String, apiKey: Option[String], parameters: Option[Parame
         new URL(builder.toString)
     }
 
-    private def doGetRequest(url: URL): Response = {
+    protected def doGetRequest(url: URL): Response = {
         var result: Response = null
         var stream: InputStream = null
         try {
