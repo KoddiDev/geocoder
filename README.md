@@ -16,7 +16,7 @@ easy to use geocoding functions that are thoroughly tested.
 Include the following in your `build.sbt`
 
 ```
-libraryDependencies += "com.koddi" %% "geocoder" % "1.0.0"
+libraryDependencies += "com.koddi" %% "geocoder" % "1.0.1"
 ```
 
 And then import the classes into your code
