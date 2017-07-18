@@ -21,6 +21,8 @@ class ResponseParserSpec extends TestSpec {
 
         result.types should contain("street_address")
         result.addressComponents.head.longName should be("1600")
+        result.addressComponents.head.types should be (Seq("street_number"))
+        result.addressComponents(2).types should be (Seq("locality", "political"))
         result.geometry.locationType should be("ROOFTOP")
         result.geometry.viewport.southwest.latitude should be(37.4188514)
         result.placeId should be("ChIJ2eUgeAK6j4ARbn5u_wAGqWA")
