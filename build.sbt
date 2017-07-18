@@ -2,19 +2,19 @@ name := "geocoder"
 
 organization := "com.koddi"
 
-version := "1.0.0"
+version := "1.0.1"
 
 scalaVersion := "2.11.7"
 
 scalacOptions := Seq("-unchecked", "-feature", "-deprecation", "-encoding", "utf8")
 
-crossScalaVersions := Seq("2.10.4", "2.11.7")
+crossScalaVersions := Seq("2.10.4", "2.11.7", "2.12.2")
 
 libraryDependencies ++= scalaxml(scalaVersion.value) ++ scalatest(scalaVersion.value)
 
 def scalaxml(scalaVersion: String) = {
     val lib =
-    if (scalaVersion startsWith "2.11") {
+    if (scalaVersion.startsWith("2.11") || scalaVersion.startsWith("2.12")) {
         "org.scala-lang.modules" %% "scala-xml" % "1.0.6"
     } else {
         null

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GeocodeResponse>
+ <status>OK</status>
+ <result>
+  <type>premise</type>
+  <formatted_address>2821 W 7th St, Fort Worth, TX 76107, USA</formatted_address>
+  <address_component>
+   <long_name>2821</long_name>
+   <short_name>2821</short_name>
+   <type>street_number</type>
+  </address_component>
+  <address_component>
+   <long_name>West 7th Street</long_name>
+   <short_name>W 7th St</short_name>
+   <type>route</type>
+  </address_component>
+  <address_component>
+   <long_name>Fort Worth</long_name>
+   <short_name>Fort Worth</short_name>
+   <type>locality</type>
+   <type>political</type>
+  </address_component>
+  <address_component>
+   <long_name>Tarrant County</long_name>
+   <short_name>Tarrant County</short_name>
+   <type>administrative_area_level_2</type>
+   <type>political</type>
+  </address_component>
+  <address_component>
+   <long_name>Texas</long_name>
+   <short_name>TX</short_name>
+   <type>administrative_area_level_1</type>
+   <type>political</type>
+  </address_component>
+  <address_component>
+   <long_name>United States</long_name>
+   <short_name>US</short_name>
+   <type>country</type>
+   <type>political</type>
+  </address_component>
+  <address_component>
+   <long_name>76107</long_name>
+   <short_name>76107</short_name>
+   <type>postal_code</type>
+  </address_component>
+  <geometry>
+   <location>
+    <lat>32.7505842</lat>
+    <lng>-97.3574015</lng>
+   </location>
+   <location_type>ROOFTOP</location_type>
+   <viewport>
+    <southwest>
+     <lat>32.7492352</lat>
+     <lng>-97.3587504</lng>
+    </southwest>
+    <northeast>
+     <lat>32.7519332</lat>
+     <lng>-97.3560525</lng>
+    </northeast>
+   </viewport>
+   <bounds>
+    <southwest>
+     <lat>32.7502024</lat>
+     <lng>-97.3582603</lng>
+    </southwest>
+    <northeast>
+     <lat>32.7509660</lat>
+     <lng>-97.3565426</lng>
+    </northeast>
+   </bounds>
+  </geometry>
+  <place_id>ChIJc4qXrOBzToYRm6sQfg1w-NU</place_id>
+ </result>
+</GeocodeResponse>
+

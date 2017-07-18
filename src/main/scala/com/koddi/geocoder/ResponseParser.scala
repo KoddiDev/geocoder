@@ -61,10 +61,12 @@ class ResponseParser {
 
     private def readAddressComponents(node: NodeSeq): Seq[AddressComponent] = {
         (node \ "address_component").map{ component =>
+            val types = (component \ "type").map(_.text.trim).toSeq
+
             AddressComponent(
                 text(component, "long_name"),
                 text(component, "short_name"),
-                Seq(text(component, "type"))
+                types
             )
         }
     }
