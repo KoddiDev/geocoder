@@ -1,3 +1,8 @@
+/**
+  * Copyright (C) 2017-2018 Koddi Inc
+  * See the LICENSE file distributed with this work for additional
+  * information regarding copyright ownership.
+  */
 package com.koddi.geocoder
 
 import java.io.InputStream
@@ -17,7 +22,7 @@ class ResponseParser {
      *
      * @param stream a stream containing XML data
      * @return an immutable Response instance
-     */ 
+     */
     def parse(stream: InputStream): Response = {
         val root = XML.load(stream)
         Response(
@@ -53,10 +58,7 @@ class ResponseParser {
 
     private def readBounds(node: NodeSeq): Option[GeometryBounds] = {
         val bounds = (node \ "bounds")
-        if (bounds.length <= 0) {
-            return None
-        }
-        Some(readGeometryBounds(node, "bounds"))
+        if (bounds.length <= 0) None else Some(readGeometryBounds(node, "bounds"))
     }
 
     private def readAddressComponents(node: NodeSeq): Seq[AddressComponent] = {
@@ -73,10 +75,7 @@ class ResponseParser {
 
     private def readPostcodeLocalities(node: NodeSeq): Option[Seq[String]] = {
         val postcodes = (node \ "postcode_localities")
-        if (postcodes.length <= 0) {
-            return None
-        }
-        Some(postcodes.map(_.text.trim))
+        if (postcodes.length <= 0) None else Some(postcodes.map(_.text.trim))
     }
 
     private def readGeometryBounds(node: NodeSeq, key: String): GeometryBounds = {

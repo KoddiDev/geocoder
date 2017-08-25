@@ -1,3 +1,8 @@
+/**
+  * Copyright (C) 2017-2018 Koddi Inc
+  * See the LICENSE file distributed with this work for additional
+  * information regarding copyright ownership.
+  */
 package com.koddi.geocoder
 
 import scala.concurrent.{ExecutionContext, Future}
@@ -5,8 +10,8 @@ import scala.concurrent.{ExecutionContext, Future}
 /** Use the geocoding API with asynchonous requests
  *
  * Simple composition class that executes the Geocoder methods within and
- * implicit {{{ scala.concurrent.ExecutionContext }}}. Exceptions are automatically
- * bubbled up to the {{{ onFailure }}} events. All {{{ scala.concurrent.Future[Result] }}}
+ * implicit `scala.concurrent.ExecutionContext`. Exceptions are automatically
+ * bubbled up to the `onFailure` events. All `scala.concurrent.Future[Result]`
  * contain the return values from the wrapper [[com.koddi.geocoder.Geocoder]].
  *
  * @param geo a Geocoder instance to wrap with async callers
@@ -15,7 +20,7 @@ class AsyncGeocoder(geo: Geocoder) {
 
     type FutureResult = Future[Seq[Result]]
 
-    /** Perform an address lookup that returns a {{{ scala.concurrent.Future[Result] }}};
+    /** Perform an address lookup that returns a `scala.concurrent.Future[Result]`;
      *
      * @see [[com.koddi.geocoder.Geocoder]]
      */
@@ -24,7 +29,7 @@ class AsyncGeocoder(geo: Geocoder) {
         geo.lookup(address)
     }(context)
 
-    /** Perform a latitude/longitude lookup that returns a {{{ scala.concurrent.Future[Result] }}}.
+    /** Perform a latitude/longitude lookup that returns a `scala.concurrent.Future[Result]`.
      *
      * @see [[com.koddi.geocoder.Geocoder]]
      */
@@ -33,7 +38,7 @@ class AsyncGeocoder(geo: Geocoder) {
         geo.lookup(latitude, longitude)
     }(context)
 
-    /** Perform a component lookup that returns a {{{ scala.concurrent.Future[Result] }}}.
+    /** Perform a component lookup that returns a `scala.concurrent.Future[Result]`.
      *
      * @see [[com.koddi.geocoder.Geocoder]]
      */
@@ -42,7 +47,7 @@ class AsyncGeocoder(geo: Geocoder) {
         geo.lookup(components)
     }(context)
 
-    /** Perform an place id lookup that returns a {{{ scala.concurrent.Future[Result] }}};
+    /** Perform an place id lookup that returns a `scala.concurrent.Future[Result]`;
      *
      * @see [[com.koddi.geocoder.Geocoder]]
      */

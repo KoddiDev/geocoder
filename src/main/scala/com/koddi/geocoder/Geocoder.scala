@@ -1,3 +1,8 @@
+/**
+  * Copyright (C) 2017-2018 Koddi Inc
+  * See the LICENSE file distributed with this work for additional
+  * information regarding copyright ownership.
+  */
 package com.koddi.geocoder
 
 import java.net.{URL, URLEncoder}
@@ -60,7 +65,7 @@ object Geocoder {
 /** Converts strings and addresses to latitude/longitude values.
  *
  * Latitude/Longitude values can be queried with a formatted address.
- * The Google Maps API is called using the values from the address 
+ * The Google Maps API is called using the values from the address
  * and a [[com.koddi.geocoder.Result]] instance is returned.
  *
  *
@@ -85,8 +90,8 @@ class Geocoder(apiUrl: String, apiKey: Option[String], parameters: Option[Parame
     /** Lookups an address given a location entity.
      *
      * A request to the Google Maps API is made to obtain the
-     * correct address value. This is extracted using {{{ Address.fromString }}}
-     * from the {{{ formatted_address }}} property in the response.
+     * correct address value. This is extracted using `Address.fromString`
+     * from the `formatted_address` property in the response.
      *
      * @return an sequence of Result objects containing location and geometry data
      */
@@ -125,9 +130,10 @@ class Geocoder(apiUrl: String, apiKey: Option[String], parameters: Option[Parame
         }
 
         if (response.hasNoResults) {
-            return Seq.empty[Result]
+            Seq.empty[Result]
+        } else {
+            response.results
         }
-        response.results
     }
 
     protected def createURL(searchParam: String, searchValue: String): URL = {
@@ -154,6 +160,7 @@ class Geocoder(apiUrl: String, apiKey: Option[String], parameters: Option[Parame
         new URL(builder.toString)
     }
 
+    // scalastyle:off
     protected def doGetRequest(url: URL): Response = {
         var result: Response = null
         var stream: InputStream = null
@@ -169,5 +176,6 @@ class Geocoder(apiUrl: String, apiKey: Option[String], parameters: Option[Parame
         }
         result
     }
+    // scalastyle:on
 }
 

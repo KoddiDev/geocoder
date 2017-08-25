@@ -1,3 +1,8 @@
+/**
+  * Copyright (C) 2017-2018 Koddi Inc
+  * See the LICENSE file distributed with this work for additional
+  * information regarding copyright ownership.
+  */
 package com.koddi.geocoder
 
 /** Provides constants related to [[com.koddi.geocoder.Location]] */
@@ -10,7 +15,7 @@ object Location {
 
 /** Simple wrapper for storing latitude and longitude values
  *
- * Internally the {{{ toString() }}} method is overriden
+ * Internally the `toString()` method is overriden
  * so it can write the latitude/longitude values as a
  * coordinate string.
  *
@@ -79,7 +84,7 @@ object AddressComponent {
  *
  * AddressComponents can contain any part of the address field.
  * This includes street, city, state, etc.. the field type can
- * be determined by the {{{ types }}} Seq.
+ * be determined by the `types` Seq.
  */
 case class AddressComponent(longName: String, shortName: String, types: Seq[String])
 
@@ -97,7 +102,7 @@ case class Result(
  *
  * This entity represents the JSON response returned from
  * the Google Maps API.
- */ 
+ */
 case class Response(status: String, results: Seq[Result], errorMessage: Option[String]) {
 
     val success: Boolean = status == "OK"

@@ -1,3 +1,8 @@
+/**
+  * Copyright (C) 2017-2018 Koddi Inc
+  * See the LICENSE file distributed with this work for additional
+  * information regarding copyright ownership.
+  */
 package com.koddi.geocoder
 
 import java.net.URLEncoder
@@ -17,7 +22,7 @@ sealed abstract class AbstractComponent(key: String, value: String) {
     override def toString(): String = formattedString
 }
 
-case class Component(key: String, value: String) extends AbstractComponent(key, value) 
+case class Component(key: String, value: String) extends AbstractComponent(key, value)
 
 /** Serializes to "route=value" */
 case class RouteComponent(value: String) extends AbstractComponent(Component.ROUTE, value)
@@ -51,7 +56,7 @@ case class Parameters(
             case Some(value) => appendQueryParameter(builder, Geocoder.API_PARAM_REGION, value)
             case None => // default
         }
-    
+
         bounds match {
             case Some(value) => appendQueryParameter(builder, Geocoder.API_PARAM_BOUNDS, value.toString)
             case None => // default
