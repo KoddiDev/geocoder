@@ -1,44 +1,267 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>Geocoder - com.koddi.geocoder.Geocoder</title>
-          <meta name="description" content="Geocoder - com.koddi.geocoder.Geocoder" />
-          <meta name="keywords" content="Geocoder com.koddi.geocoder.Geocoder" />
+          <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+          <title></title>
+          <meta name="description" content="" />
+          <meta name="keywords" content="" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
+      <link href="../../../lib/index.css" media="screen" type="text/css" rel="stylesheet" />
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
       <link href="../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
-      <script type="text/javascript" src="../../../lib/jquery.js" id="jquery-js"></script>
-      <script type="text/javascript" src="../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../lib/jquery.js"></script>
+      <script type="text/javascript" src="../../../lib/jquery.panzoom.min.js"></script>
+      <script type="text/javascript" src="../../../lib/jquery.mousewheel.min.js"></script>
+      <script type="text/javascript" src="../../../lib/index.js"></script>
+      <script type="text/javascript" src="../../../index.js"></script>
+      <script type="text/javascript" src="../../../lib/scheduler.js"></script>
       <script type="text/javascript" src="../../../lib/template.js"></script>
       <script type="text/javascript" src="../../../lib/tools.tooltip.js"></script>
       
       <script type="text/javascript">
-         if(top === self) {
-            var url = '../../../index.html';
-            var hash = 'com.koddi.geocoder.Geocoder$';
-            var anchor = window.location.hash;
-            var anchor_opt = '';
-            if (anchor.length >= 1)
-              anchor_opt = '@' + anchor.substring(1);
-            window.location.href = url + '#' + hash + anchor_opt;
-         }
-   	  </script>
+        /* this variable can be used by the JS to determine the path to the root document */
+        var toRoot = '../../../';
+      </script>
     
         </head>
-        <body class="value">
-      <div id="definition">
-        <a href="Geocoder.html" title="See companion class"><img alt="Object/Class" src="../../../lib/object_to_class_big.png" /></a>
-        <p id="owner"><a href="../../package.html" class="extype" name="com">com</a>.<a href="../package.html" class="extype" name="com.koddi">koddi</a>.<a href="package.html" class="extype" name="com.koddi.geocoder">geocoder</a></p>
-        <h1><a href="Geocoder.html" title="See companion class">Geocoder</a></h1><h3><span class="morelinks"><div>
-            Related Docs:
-            <a href="Geocoder.html" title="See companion class">class Geocoder</a>
-            | <a href="package.html" class="extype" name="com.koddi.geocoder">package geocoder</a>
-          </div></span></h3><span class="permalink">
-      <a href="../../../index.html#com.koddi.geocoder.Geocoder$" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
+        <body>
+      <div id="search">
+        <span id="doc-title"><span id="doc-version"></span></span>
+        <span class="close-results"><span class="left">&lt;</span> Back</span>
+        <div id="textfilter">
+          <span class="input">
+            <input autocapitalize="none" placeholder="Search" id="index-input" type="text" accesskey="/" />
+            <i class="clear material-icons"></i>
+            <i id="search-icon" class="material-icons"></i>
+          </span>
+        </div>
+    </div>
+      <div id="search-results">
+        <div id="search-progress">
+          <div id="progress-fill"></div>
+        </div>
+        <div id="results-content">
+          <div id="entity-results"></div>
+          <div id="member-results"></div>
+        </div>
+      </div>
+      <div id="content-scroll-container" style="-webkit-overflow-scrolling: touch;">
+        <div id="content-container" style="-webkit-overflow-scrolling: touch;">
+          <div id="subpackage-spacer">
+            <div id="packages">
+              <h1>Packages</h1>
+              <ul>
+                <li name="_root_.root" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="_root_"></a><a id="root:_root_"></a>
+      <span class="permalink">
+      <a href="index.html#_root_" title="Permalink">
+        <i class="material-icons"></i>
       </a>
     </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="../../../index.html">
+              <span class="name">root</span>
+            </a>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../../index.html" class="extype" name="_root_">root</a></dd></dl></div>
+    </li><li name="_root_.com" visbl="pub" class="indented1 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="com"></a><a id="com:com"></a>
+      <span class="permalink">
+      <a href="index.html#com" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="../../index.html">
+              <span class="name">com</span>
+            </a>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../../index.html" class="extype" name="_root_">root</a></dd></dl></div>
+    </li><li name="com.koddi" visbl="pub" class="indented2 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="koddi"></a><a id="koddi:koddi"></a>
+      <span class="permalink">
+      <a href="../com/index.html#koddi" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="../index.html">
+              <span class="name">koddi</span>
+            </a>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../index.html" class="extype" name="com">com</a></dd></dl></div>
+    </li><li name="com.koddi.geocoder" visbl="pub" class="indented3 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="geocoder"></a><a id="geocoder:geocoder"></a>
+      <span class="permalink">
+      <a href="../../com/koddi/index.html#geocoder" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="index.html">
+              <span class="name">geocoder</span>
+            </a>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../index.html" class="extype" name="com.koddi">koddi</a></dd></dl></div>
+    </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="class" href="AbstractComponent.html" title=""></a>
+                        <a href="AbstractComponent.html" title="">
+                          AbstractComponent
+                        </a>
+                      </li><li class="current-entities indented3">
+                        <a class="object" href="AddressComponent$.html" title="Provides constants for com.koddi.geocoder.AddressComponent"></a>
+                        <a class="class" href="AddressComponent.html" title="Contains meta data about the address."></a>
+                        <a href="AddressComponent.html" title="Contains meta data about the address.">
+                          AddressComponent
+                        </a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="class" href="AdministrativeAreaComponent.html" title="Serializes to &quot;administrative_area=value&quot;"></a>
+                        <a href="AdministrativeAreaComponent.html" title="Serializes to &quot;administrative_area=value&quot;">
+                          AdministrativeAreaComponent
+                        </a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="class" href="AsyncGeocoder.html" title="Use the geocoding API with asynchonous requests"></a>
+                        <a href="AsyncGeocoder.html" title="Use the geocoding API with asynchonous requests">
+                          AsyncGeocoder
+                        </a>
+                      </li><li class="current-entities indented3">
+                        <a class="object" href="Component$.html" title=""></a>
+                        <a class="class" href="Component.html" title=""></a>
+                        <a href="Component.html" title="">
+                          Component
+                        </a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="class" href="CountryComponent.html" title="Serializes to &quot;country=value&quot;"></a>
+                        <a href="CountryComponent.html" title="Serializes to &quot;country=value&quot;">
+                          CountryComponent
+                        </a>
+                      </li><li class="current-entities indented3">
+                        <a class="object" href="" title="Factory for com.koddi.geocoder.Geocoder instances."></a>
+                        <a class="class" href="Geocoder.html" title="Converts strings and addresses to latitude/longitude values."></a>
+                        <a href="Geocoder.html" title="Converts strings and addresses to latitude/longitude values.">
+                          Geocoder
+                        </a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="class" href="Geometry.html" title="High level geometry data related to the queried location."></a>
+                        <a href="Geometry.html" title="High level geometry data related to the queried location.">
+                          Geometry
+                        </a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="class" href="GeometryBounds.html" title="Bounding points the represent opposite edges of a square."></a>
+                        <a href="GeometryBounds.html" title="Bounding points the represent opposite edges of a square.">
+                          GeometryBounds
+                        </a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="class" href="InvalidLocationException.html" title=""></a>
+                        <a href="InvalidLocationException.html" title="">
+                          InvalidLocationException
+                        </a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="class" href="InvalidResponseException.html" title=""></a>
+                        <a href="InvalidResponseException.html" title="">
+                          InvalidResponseException
+                        </a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="class" href="LocalityComponent.html" title="Serializes to &quot;locality=value&quot;"></a>
+                        <a href="LocalityComponent.html" title="Serializes to &quot;locality=value&quot;">
+                          LocalityComponent
+                        </a>
+                      </li><li class="current-entities indented3">
+                        <a class="object" href="Location$.html" title="Provides constants related to com.koddi.geocoder.Location"></a>
+                        <a class="class" href="Location.html" title="Simple wrapper for storing latitude and longitude values"></a>
+                        <a href="Location.html" title="Simple wrapper for storing latitude and longitude values">
+                          Location
+                        </a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="class" href="Parameters.html" title=""></a>
+                        <a href="Parameters.html" title="">
+                          Parameters
+                        </a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="class" href="PostalCodeComponent.html" title="Serializes to &quot;postal_code=value&quot;"></a>
+                        <a href="PostalCodeComponent.html" title="Serializes to &quot;postal_code=value&quot;">
+                          PostalCodeComponent
+                        </a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="class" href="Response.html" title="The Google Maps response wrapper"></a>
+                        <a href="Response.html" title="The Google Maps response wrapper">
+                          Response
+                        </a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="class" href="ResponseParser.html" title="Parses Google Maps XML responses and converts them into com.koddi.geocoder.Response."></a>
+                        <a href="ResponseParser.html" title="Parses Google Maps XML responses and converts them into com.koddi.geocoder.Response.">
+                          ResponseParser
+                        </a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="class" href="ResponseParsingException.html" title=""></a>
+                        <a href="ResponseParsingException.html" title="">
+                          ResponseParsingException
+                        </a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="class" href="Result.html" title="A collection of location and geometry data."></a>
+                        <a href="Result.html" title="A collection of location and geometry data.">
+                          Result
+                        </a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="class" href="RouteComponent.html" title="Serializes to &quot;route=value&quot;"></a>
+                        <a href="RouteComponent.html" title="Serializes to &quot;route=value&quot;">
+                          RouteComponent
+                        </a>
+                      </li>
+              </ul>
+            </div>
+          </div>
+          <div id="content">
+            <body class="object value">
+      <div id="definition">
+        <a href="Geocoder.html" title="See companion class"><div class="big-circle object-companion-class">o</div></a>
+        <p id="owner"><a href="../../index.html" class="extype" name="com">com</a>.<a href="../index.html" class="extype" name="com.koddi">koddi</a>.<a href="index.html" class="extype" name="com.koddi.geocoder">geocoder</a></p>
+        <h1><a href="Geocoder.html" title="See companion class">Geocoder</a><span class="permalink">
+      <a href="../../../com/koddi/geocoder/Geocoder$.html" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span></h1>
+        <h3><span class="morelinks"><div>
+            Companion <a href="Geocoder.html" title="See companion class">class Geocoder</a>
+          </div></span></h3>
       </div>
 
       <h4 id="signature" class="signature">
@@ -50,40 +273,52 @@
         <span class="name">Geocoder</span>
       </span>
       </h4>
+
       
           <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Factory for <a href="Geocoder.html" class="extype" name="com.koddi.geocoder.Geocoder">com.koddi.geocoder.Geocoder</a> instances.</p></div><div class="toggleContainer block">
-          <span class="toggle">Linear Supertypes</span>
+          <span class="toggle">
+            Linear Supertypes
+          </span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
         
 
       <div id="mbrsel">
-        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
-        <div id="order">
-              <span class="filtertype">Ordering</span>
-              <ol>
-                
-                <li class="alpha in"><span>Alphabetic</span></li>
-                <li class="inherit out"><span>By inheritance</span></li>
-              </ol>
-            </div>
-        <div id="ancestors">
-                <span class="filtertype">Inherited<br />
-                </span>
-                <ol id="linearization">
-                  <li class="in" name="com.koddi.geocoder.Geocoder"><span>Geocoder</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
-                </ol>
-              </div><div id="ancestors">
-            <span class="filtertype"></span>
+        <div class="toggle"></div>
+        <div id="memberfilter">
+          <i class="material-icons arrow"></i>
+          <span class="input">
+            <input id="mbrsel-input" placeholder="Filter all members" type="text" accesskey="/" />
+          </span>
+          <i class="clear material-icons"></i>
+        </div>
+        <div id="filterby">
+          <div id="order">
+            <span class="filtertype">Ordering</span>
             <ol>
-              <li class="hideall out"><span>Hide All</span></li>
-              <li class="showall in"><span>Show all</span></li>
+              
+              <li class="alpha in"><span>Alphabetic</span></li>
+              <li class="inherit out"><span>By Inheritance</span></li>
             </ol>
           </div>
-        <div id="visbl">
-            <span class="filtertype">Visibility</span>
-            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
-          </div>
+          <div class="ancestors">
+                  <span class="filtertype">Inherited<br />
+                  </span>
+                  <ol id="linearization">
+                    <li class="in" name="com.koddi.geocoder.Geocoder"><span>Geocoder</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  </ol>
+                </div><div class="ancestors">
+              <span class="filtertype"></span>
+              <ol>
+                <li class="hideall out"><span>Hide All</span></li>
+                <li class="showall in"><span>Show All</span></li>
+              </ol>
+            </div>
+          <div id="visbl">
+              <span class="filtertype">Visibility</span>
+              <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+            </div>
+        </div>
       </div>
 
       <div id="template">
@@ -94,12 +329,16 @@
 
         
 
-        <div id="values" class="values members">
+        <div class="values members">
               <h3>Value Members</h3>
-              <ol><li name="scala.AnyRef#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="!=(x$1:Any):Boolean"></a>
-      <a id="!=(Any):Boolean"></a>
-      <h4 class="signature">
+              <ol>
+                <li name="scala.AnyRef#!=" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:Any):Boolean"></a><a id="!=(Any):Boolean"></a>
+      <span class="permalink">
+      <a href="../../../com/koddi/geocoder/Geocoder$.html#!=(x$1:Any):Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
       <span class="modifier_kind">
         <span class="modifier">final </span>
         <span class="kind">def</span>
@@ -107,16 +346,15 @@
       <span class="symbol">
         <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.koddi.geocoder.Geocoder$@!=(x$1:Any):Boolean" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef###" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="##():Int"></a>
+      <span class="permalink">
+      <a href="../../../com/koddi/geocoder/Geocoder$.html###():Int" title="Permalink">
+        <i class="material-icons"></i>
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="scala.AnyRef###" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="##():Int"></a>
-      <a id="##():Int"></a>
-      <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier">final </span>
         <span class="kind">def</span>
@@ -124,16 +362,15 @@
       <span class="symbol">
         <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
       </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.koddi.geocoder.Geocoder$@##():Int" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#==" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:Any):Boolean"></a><a id="==(Any):Boolean"></a>
+      <span class="permalink">
+      <a href="../../../com/koddi/geocoder/Geocoder$.html#==(x$1:Any):Boolean" title="Permalink">
+        <i class="material-icons"></i>
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="scala.AnyRef#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="==(x$1:Any):Boolean"></a>
-      <a id="==(Any):Boolean"></a>
-      <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier">final </span>
         <span class="kind">def</span>
@@ -141,16 +378,15 @@
       <span class="symbol">
         <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.koddi.geocoder.Geocoder$@==(x$1:Any):Boolean" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="com.koddi.geocoder.Geocoder#API_PARAM_ADDRESS" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="API_PARAM_ADDRESS:String"></a>
+      <span class="permalink">
+      <a href="../../../com/koddi/geocoder/Geocoder$.html#API_PARAM_ADDRESS:String" title="Permalink">
+        <i class="material-icons"></i>
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="com.koddi.geocoder.Geocoder#API_PARAM_ADDRESS" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="API_PARAM_ADDRESS:String"></a>
-      <a id="API_PARAM_ADDRESS:String"></a>
-      <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">val</span>
@@ -158,16 +394,15 @@
       <span class="symbol">
         <span class="name">API_PARAM_ADDRESS</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
       </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.koddi.geocoder.Geocoder$@API_PARAM_ADDRESS:String" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
+      
+      
+    </li><li name="com.koddi.geocoder.Geocoder#API_PARAM_BOUNDS" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="API_PARAM_BOUNDS:String"></a>
+      <span class="permalink">
+      <a href="../../../com/koddi/geocoder/Geocoder$.html#API_PARAM_BOUNDS:String" title="Permalink">
+        <i class="material-icons"></i>
       </a>
     </span>
-      
-    </li><li name="com.koddi.geocoder.Geocoder#API_PARAM_BOUNDS" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="API_PARAM_BOUNDS:String"></a>
-      <a id="API_PARAM_BOUNDS:String"></a>
-      <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">val</span>
@@ -175,16 +410,15 @@
       <span class="symbol">
         <span class="name">API_PARAM_BOUNDS</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
       </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.koddi.geocoder.Geocoder$@API_PARAM_BOUNDS:String" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
+      
+      
+    </li><li name="com.koddi.geocoder.Geocoder#API_PARAM_COMPONENTS" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="API_PARAM_COMPONENTS:String"></a>
+      <span class="permalink">
+      <a href="../../../com/koddi/geocoder/Geocoder$.html#API_PARAM_COMPONENTS:String" title="Permalink">
+        <i class="material-icons"></i>
       </a>
     </span>
-      
-    </li><li name="com.koddi.geocoder.Geocoder#API_PARAM_COMPONENTS" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="API_PARAM_COMPONENTS:String"></a>
-      <a id="API_PARAM_COMPONENTS:String"></a>
-      <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">val</span>
@@ -192,16 +426,15 @@
       <span class="symbol">
         <span class="name">API_PARAM_COMPONENTS</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
       </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.koddi.geocoder.Geocoder$@API_PARAM_COMPONENTS:String" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
+      
+      
+    </li><li name="com.koddi.geocoder.Geocoder#API_PARAM_KEY" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="API_PARAM_KEY:String"></a>
+      <span class="permalink">
+      <a href="../../../com/koddi/geocoder/Geocoder$.html#API_PARAM_KEY:String" title="Permalink">
+        <i class="material-icons"></i>
       </a>
     </span>
-      
-    </li><li name="com.koddi.geocoder.Geocoder#API_PARAM_KEY" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="API_PARAM_KEY:String"></a>
-      <a id="API_PARAM_KEY:String"></a>
-      <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">val</span>
@@ -209,16 +442,15 @@
       <span class="symbol">
         <span class="name">API_PARAM_KEY</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
       </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.koddi.geocoder.Geocoder$@API_PARAM_KEY:String" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
+      
+      
+    </li><li name="com.koddi.geocoder.Geocoder#API_PARAM_LANGUAGE" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="API_PARAM_LANGUAGE:String"></a>
+      <span class="permalink">
+      <a href="../../../com/koddi/geocoder/Geocoder$.html#API_PARAM_LANGUAGE:String" title="Permalink">
+        <i class="material-icons"></i>
       </a>
     </span>
-      
-    </li><li name="com.koddi.geocoder.Geocoder#API_PARAM_LANGUAGE" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="API_PARAM_LANGUAGE:String"></a>
-      <a id="API_PARAM_LANGUAGE:String"></a>
-      <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">val</span>
@@ -226,16 +458,15 @@
       <span class="symbol">
         <span class="name">API_PARAM_LANGUAGE</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
       </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.koddi.geocoder.Geocoder$@API_PARAM_LANGUAGE:String" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
+      
+      
+    </li><li name="com.koddi.geocoder.Geocoder#API_PARAM_LATLNG" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="API_PARAM_LATLNG:String"></a>
+      <span class="permalink">
+      <a href="../../../com/koddi/geocoder/Geocoder$.html#API_PARAM_LATLNG:String" title="Permalink">
+        <i class="material-icons"></i>
       </a>
     </span>
-      
-    </li><li name="com.koddi.geocoder.Geocoder#API_PARAM_LATLNG" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="API_PARAM_LATLNG:String"></a>
-      <a id="API_PARAM_LATLNG:String"></a>
-      <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">val</span>
@@ -243,16 +474,15 @@
       <span class="symbol">
         <span class="name">API_PARAM_LATLNG</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
       </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.koddi.geocoder.Geocoder$@API_PARAM_LATLNG:String" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
+      
+      
+    </li><li name="com.koddi.geocoder.Geocoder#API_PARAM_LOCATION_TYPE" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="API_PARAM_LOCATION_TYPE:String"></a>
+      <span class="permalink">
+      <a href="../../../com/koddi/geocoder/Geocoder$.html#API_PARAM_LOCATION_TYPE:String" title="Permalink">
+        <i class="material-icons"></i>
       </a>
     </span>
-      
-    </li><li name="com.koddi.geocoder.Geocoder#API_PARAM_LOCATION_TYPE" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="API_PARAM_LOCATION_TYPE:String"></a>
-      <a id="API_PARAM_LOCATION_TYPE:String"></a>
-      <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">val</span>
@@ -260,16 +490,15 @@
       <span class="symbol">
         <span class="name">API_PARAM_LOCATION_TYPE</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
       </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.koddi.geocoder.Geocoder$@API_PARAM_LOCATION_TYPE:String" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
+      
+      
+    </li><li name="com.koddi.geocoder.Geocoder#API_PARAM_PLACE_ID" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="API_PARAM_PLACE_ID:String"></a>
+      <span class="permalink">
+      <a href="../../../com/koddi/geocoder/Geocoder$.html#API_PARAM_PLACE_ID:String" title="Permalink">
+        <i class="material-icons"></i>
       </a>
     </span>
-      
-    </li><li name="com.koddi.geocoder.Geocoder#API_PARAM_PLACE_ID" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="API_PARAM_PLACE_ID:String"></a>
-      <a id="API_PARAM_PLACE_ID:String"></a>
-      <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">val</span>
@@ -277,16 +506,15 @@
       <span class="symbol">
         <span class="name">API_PARAM_PLACE_ID</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
       </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.koddi.geocoder.Geocoder$@API_PARAM_PLACE_ID:String" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
+      
+      
+    </li><li name="com.koddi.geocoder.Geocoder#API_PARAM_REGION" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="API_PARAM_REGION:String"></a>
+      <span class="permalink">
+      <a href="../../../com/koddi/geocoder/Geocoder$.html#API_PARAM_REGION:String" title="Permalink">
+        <i class="material-icons"></i>
       </a>
     </span>
-      
-    </li><li name="com.koddi.geocoder.Geocoder#API_PARAM_REGION" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="API_PARAM_REGION:String"></a>
-      <a id="API_PARAM_REGION:String"></a>
-      <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">val</span>
@@ -294,16 +522,15 @@
       <span class="symbol">
         <span class="name">API_PARAM_REGION</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
       </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.koddi.geocoder.Geocoder$@API_PARAM_REGION:String" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
+      
+      
+    </li><li name="com.koddi.geocoder.Geocoder#API_PARAM_RESULT_TYPE" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="API_PARAM_RESULT_TYPE:String"></a>
+      <span class="permalink">
+      <a href="../../../com/koddi/geocoder/Geocoder$.html#API_PARAM_RESULT_TYPE:String" title="Permalink">
+        <i class="material-icons"></i>
       </a>
     </span>
-      
-    </li><li name="com.koddi.geocoder.Geocoder#API_PARAM_RESULT_TYPE" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="API_PARAM_RESULT_TYPE:String"></a>
-      <a id="API_PARAM_RESULT_TYPE:String"></a>
-      <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">val</span>
@@ -311,16 +538,15 @@
       <span class="symbol">
         <span class="name">API_PARAM_RESULT_TYPE</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
       </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.koddi.geocoder.Geocoder$@API_PARAM_RESULT_TYPE:String" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
+      
+      
+    </li><li name="com.koddi.geocoder.Geocoder#API_URL" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="API_URL:String"></a>
+      <span class="permalink">
+      <a href="../../../com/koddi/geocoder/Geocoder$.html#API_URL:String" title="Permalink">
+        <i class="material-icons"></i>
       </a>
     </span>
-      
-    </li><li name="com.koddi.geocoder.Geocoder#API_URL" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="API_URL:String"></a>
-      <a id="API_URL:String"></a>
-      <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">val</span>
@@ -328,16 +554,15 @@
       <span class="symbol">
         <span class="name">API_URL</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
       </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.koddi.geocoder.Geocoder$@API_URL:String" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
+      
+      
+    </li><li name="scala.Any#asInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="asInstanceOf[T0]:T0"></a>
+      <span class="permalink">
+      <a href="../../../com/koddi/geocoder/Geocoder$.html#asInstanceOf[T0]:T0" title="Permalink">
+        <i class="material-icons"></i>
       </a>
     </span>
-      
-    </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="asInstanceOf[T0]:T0"></a>
-      <a id="asInstanceOf[T0]:T0"></a>
-      <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier">final </span>
         <span class="kind">def</span>
@@ -345,16 +570,15 @@
       <span class="symbol">
         <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
       </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.koddi.geocoder.Geocoder$@asInstanceOf[T0]:T0" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.AnyRef#clone" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="clone():Object"></a><a id="clone():AnyRef"></a>
+      <span class="permalink">
+      <a href="../../../com/koddi/geocoder/Geocoder$.html#clone():Object" title="Permalink">
+        <i class="material-icons"></i>
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
-    </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="clone():Object"></a>
-      <a id="clone():AnyRef"></a>
-      <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
@@ -362,11 +586,7 @@
       <span class="symbol">
         <span class="name">clone</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.koddi.geocoder.Geocoder$@clone():Object" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
+      
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">(<span>
       
@@ -374,10 +594,13 @@
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="com.koddi.geocoder.Geocoder#create" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="create(key:String,parameters:Option[com.koddi.geocoder.Parameters]):com.koddi.geocoder.Geocoder"></a>
-      <a id="create(String,Option[Parameters]):Geocoder"></a>
-      <h4 class="signature">
+    </li><li name="com.koddi.geocoder.Geocoder#create" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="create(key:String,parameters:Option[com.koddi.geocoder.Parameters]):com.koddi.geocoder.Geocoder"></a><a id="create(String,Option[Parameters]):Geocoder"></a>
+      <span class="permalink">
+      <a href="../../../com/koddi/geocoder/Geocoder$.html#create(key:String,parameters:Option[com.koddi.geocoder.Parameters]):com.koddi.geocoder.Geocoder" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
@@ -385,19 +608,18 @@
       <span class="symbol">
         <span class="name">create</span><span class="params">(<span name="key">key: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="parameters">parameters: <span class="extype" name="scala.Option">Option</span>[<a href="Parameters.html" class="extype" name="com.koddi.geocoder.Parameters">Parameters</a>] = <span class="symbol">None</span></span>)</span><span class="result">: <a href="Geocoder.html" class="extype" name="com.koddi.geocoder.Geocoder">Geocoder</a></span>
       </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.koddi.geocoder.Geocoder$@create(key:String,parameters:Option[com.koddi.geocoder.Parameters]):com.koddi.geocoder.Geocoder" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
+      
       <p class="shortcomment cmt">Create a Geocoder with a given API Key
 </p><div class="fullcomment"><div class="comment cmt"><p>Create a Geocoder with a given API Key
 </p></div><dl class="paramcmts block"><dt class="param">key</dt><dd class="cmt"><p>the API key created by the Geo API server</p></dd><dt>returns</dt><dd class="cmt"><p>a new Geocoder instance with requests bound to
         the provided api key</p></dd></dl></div>
-    </li><li name="com.koddi.geocoder.Geocoder#create" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="create(parameters:com.koddi.geocoder.Parameters):com.koddi.geocoder.Geocoder"></a>
-      <a id="create(Parameters):Geocoder"></a>
-      <h4 class="signature">
+    </li><li name="com.koddi.geocoder.Geocoder#create" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="create(parameters:com.koddi.geocoder.Parameters):com.koddi.geocoder.Geocoder"></a><a id="create(Parameters):Geocoder"></a>
+      <span class="permalink">
+      <a href="../../../com/koddi/geocoder/Geocoder$.html#create(parameters:com.koddi.geocoder.Parameters):com.koddi.geocoder.Geocoder" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
@@ -405,16 +627,15 @@
       <span class="symbol">
         <span class="name">create</span><span class="params">(<span name="parameters">parameters: <a href="Parameters.html" class="extype" name="com.koddi.geocoder.Parameters">Parameters</a></span>)</span><span class="result">: <a href="Geocoder.html" class="extype" name="com.koddi.geocoder.Geocoder">Geocoder</a></span>
       </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.koddi.geocoder.Geocoder$@create(parameters:com.koddi.geocoder.Parameters):com.koddi.geocoder.Geocoder" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
+      
+      <p class="shortcomment cmt">Creates an anonymous Geocoder without an API key</p>
+    </li><li name="com.koddi.geocoder.Geocoder#create" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="create():com.koddi.geocoder.Geocoder"></a><a id="create():Geocoder"></a>
+      <span class="permalink">
+      <a href="../../../com/koddi/geocoder/Geocoder$.html#create():com.koddi.geocoder.Geocoder" title="Permalink">
+        <i class="material-icons"></i>
       </a>
     </span>
-      <p class="shortcomment cmt">Creates an anonymous Geocoder without an API key</p>
-    </li><li name="com.koddi.geocoder.Geocoder#create" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="create():com.koddi.geocoder.Geocoder"></a>
-      <a id="create():Geocoder"></a>
-      <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
@@ -422,16 +643,15 @@
       <span class="symbol">
         <span class="name">create</span><span class="params">()</span><span class="result">: <a href="Geocoder.html" class="extype" name="com.koddi.geocoder.Geocoder">Geocoder</a></span>
       </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.koddi.geocoder.Geocoder$@create():com.koddi.geocoder.Geocoder" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
+      
+      <p class="shortcomment cmt">Creates an anonymous Geocoder without an API key or extra parameters</p>
+    </li><li name="com.koddi.geocoder.Geocoder#createAsync" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="createAsync(key:String,parameters:Option[com.koddi.geocoder.Parameters]):com.koddi.geocoder.AsyncGeocoder"></a><a id="createAsync(String,Option[Parameters]):AsyncGeocoder"></a>
+      <span class="permalink">
+      <a href="../../../com/koddi/geocoder/Geocoder$.html#createAsync(key:String,parameters:Option[com.koddi.geocoder.Parameters]):com.koddi.geocoder.AsyncGeocoder" title="Permalink">
+        <i class="material-icons"></i>
       </a>
     </span>
-      <p class="shortcomment cmt">Creates an anonymous Geocoder without an API key or extra parameters</p>
-    </li><li name="com.koddi.geocoder.Geocoder#createAsync" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="createAsync(key:String,parameters:Option[com.koddi.geocoder.Parameters]):com.koddi.geocoder.AsyncGeocoder"></a>
-      <a id="createAsync(String,Option[Parameters]):AsyncGeocoder"></a>
-      <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
@@ -439,19 +659,18 @@
       <span class="symbol">
         <span class="name">createAsync</span><span class="params">(<span name="key">key: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="parameters">parameters: <span class="extype" name="scala.Option">Option</span>[<a href="Parameters.html" class="extype" name="com.koddi.geocoder.Parameters">Parameters</a>] = <span class="symbol">None</span></span>)</span><span class="result">: <a href="AsyncGeocoder.html" class="extype" name="com.koddi.geocoder.AsyncGeocoder">AsyncGeocoder</a></span>
       </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.koddi.geocoder.Geocoder$@createAsync(key:String,parameters:Option[com.koddi.geocoder.Parameters]):com.koddi.geocoder.AsyncGeocoder" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
+      
       <p class="shortcomment cmt">Create an AsyncGeocoder with a given API Key
 </p><div class="fullcomment"><div class="comment cmt"><p>Create an AsyncGeocoder with a given API Key
 </p></div><dl class="paramcmts block"><dt class="param">key</dt><dd class="cmt"><p>the API key created by the Geo API server</p></dd><dt>returns</dt><dd class="cmt"><p>a new AsyncGeocoder instance with requests bound to
         the provided api key</p></dd></dl></div>
-    </li><li name="com.koddi.geocoder.Geocoder#createAsync" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="createAsync(parameters:com.koddi.geocoder.Parameters):com.koddi.geocoder.AsyncGeocoder"></a>
-      <a id="createAsync(Parameters):AsyncGeocoder"></a>
-      <h4 class="signature">
+    </li><li name="com.koddi.geocoder.Geocoder#createAsync" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="createAsync(parameters:com.koddi.geocoder.Parameters):com.koddi.geocoder.AsyncGeocoder"></a><a id="createAsync(Parameters):AsyncGeocoder"></a>
+      <span class="permalink">
+      <a href="../../../com/koddi/geocoder/Geocoder$.html#createAsync(parameters:com.koddi.geocoder.Parameters):com.koddi.geocoder.AsyncGeocoder" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
@@ -459,16 +678,15 @@
       <span class="symbol">
         <span class="name">createAsync</span><span class="params">(<span name="parameters">parameters: <a href="Parameters.html" class="extype" name="com.koddi.geocoder.Parameters">Parameters</a></span>)</span><span class="result">: <a href="AsyncGeocoder.html" class="extype" name="com.koddi.geocoder.AsyncGeocoder">AsyncGeocoder</a></span>
       </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.koddi.geocoder.Geocoder$@createAsync(parameters:com.koddi.geocoder.Parameters):com.koddi.geocoder.AsyncGeocoder" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
+      
+      <p class="shortcomment cmt">Create an AsyncGeocoder without an API key</p>
+    </li><li name="com.koddi.geocoder.Geocoder#createAsync" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="createAsync():com.koddi.geocoder.AsyncGeocoder"></a><a id="createAsync():AsyncGeocoder"></a>
+      <span class="permalink">
+      <a href="../../../com/koddi/geocoder/Geocoder$.html#createAsync():com.koddi.geocoder.AsyncGeocoder" title="Permalink">
+        <i class="material-icons"></i>
       </a>
     </span>
-      <p class="shortcomment cmt">Create an AsyncGeocoder without an API key</p>
-    </li><li name="com.koddi.geocoder.Geocoder#createAsync" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="createAsync():com.koddi.geocoder.AsyncGeocoder"></a>
-      <a id="createAsync():AsyncGeocoder"></a>
-      <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
@@ -476,16 +694,15 @@
       <span class="symbol">
         <span class="name">createAsync</span><span class="params">()</span><span class="result">: <a href="AsyncGeocoder.html" class="extype" name="com.koddi.geocoder.AsyncGeocoder">AsyncGeocoder</a></span>
       </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.koddi.geocoder.Geocoder$@createAsync():com.koddi.geocoder.AsyncGeocoder" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
+      
+      
+    </li><li name="scala.AnyRef#eq" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="eq(x$1:AnyRef):Boolean"></a><a id="eq(AnyRef):Boolean"></a>
+      <span class="permalink">
+      <a href="../../../com/koddi/geocoder/Geocoder$.html#eq(x$1:AnyRef):Boolean" title="Permalink">
+        <i class="material-icons"></i>
       </a>
     </span>
-      
-    </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="eq(x$1:AnyRef):Boolean"></a>
-      <a id="eq(AnyRef):Boolean"></a>
-      <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier">final </span>
         <span class="kind">def</span>
@@ -493,16 +710,15 @@
       <span class="symbol">
         <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.koddi.geocoder.Geocoder$@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#equals" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="equals(x$1:Any):Boolean"></a><a id="equals(Any):Boolean"></a>
+      <span class="permalink">
+      <a href="../../../com/koddi/geocoder/Geocoder$.html#equals(x$1:Any):Boolean" title="Permalink">
+        <i class="material-icons"></i>
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="scala.AnyRef#equals" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="equals(x$1:Any):Boolean"></a>
-      <a id="equals(Any):Boolean"></a>
-      <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
@@ -510,16 +726,15 @@
       <span class="symbol">
         <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.koddi.geocoder.Geocoder$@equals(x$1:Any):Boolean" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#finalize" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="finalize():Unit"></a>
+      <span class="permalink">
+      <a href="../../../com/koddi/geocoder/Geocoder$.html#finalize():Unit" title="Permalink">
+        <i class="material-icons"></i>
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="finalize():Unit"></a>
-      <a id="finalize():Unit"></a>
-      <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
@@ -527,11 +742,7 @@
       <span class="symbol">
         <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.koddi.geocoder.Geocoder$@finalize():Unit" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
+      
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">(<span>
       
@@ -539,10 +750,13 @@
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+    </li><li name="scala.AnyRef#getClass" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getClass():Class[_]"></a>
-      <a id="getClass():Class[_]"></a>
-      <h4 class="signature">
+      <span class="permalink">
+      <a href="../../../com/koddi/geocoder/Geocoder$.html#getClass():Class[_]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
       <span class="modifier_kind">
         <span class="modifier">final </span>
         <span class="kind">def</span>
@@ -550,16 +764,15 @@
       <span class="symbol">
         <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
       </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.koddi.geocoder.Geocoder$@getClass():Class[_]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#hashCode" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hashCode():Int"></a>
+      <span class="permalink">
+      <a href="../../../com/koddi/geocoder/Geocoder$.html#hashCode():Int" title="Permalink">
+        <i class="material-icons"></i>
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="hashCode():Int"></a>
-      <a id="hashCode():Int"></a>
-      <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
@@ -567,16 +780,15 @@
       <span class="symbol">
         <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
       </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.koddi.geocoder.Geocoder$@hashCode():Int" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Any#isInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <span class="permalink">
+      <a href="../../../com/koddi/geocoder/Geocoder$.html#isInstanceOf[T0]:Boolean" title="Permalink">
+        <i class="material-icons"></i>
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="isInstanceOf[T0]:Boolean"></a>
-      <a id="isInstanceOf[T0]:Boolean"></a>
-      <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier">final </span>
         <span class="kind">def</span>
@@ -584,16 +796,15 @@
       <span class="symbol">
         <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.koddi.geocoder.Geocoder$@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.AnyRef#ne" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ne(x$1:AnyRef):Boolean"></a><a id="ne(AnyRef):Boolean"></a>
+      <span class="permalink">
+      <a href="../../../com/koddi/geocoder/Geocoder$.html#ne(x$1:AnyRef):Boolean" title="Permalink">
+        <i class="material-icons"></i>
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
-    </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="ne(x$1:AnyRef):Boolean"></a>
-      <a id="ne(AnyRef):Boolean"></a>
-      <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier">final </span>
         <span class="kind">def</span>
@@ -601,16 +812,15 @@
       <span class="symbol">
         <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.koddi.geocoder.Geocoder$@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notify" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notify():Unit"></a>
+      <span class="permalink">
+      <a href="../../../com/koddi/geocoder/Geocoder$.html#notify():Unit" title="Permalink">
+        <i class="material-icons"></i>
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="scala.AnyRef#notify" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="notify():Unit"></a>
-      <a id="notify():Unit"></a>
-      <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier">final </span>
         <span class="kind">def</span>
@@ -618,16 +828,15 @@
       <span class="symbol">
         <span class="name">notify</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.koddi.geocoder.Geocoder$@notify():Unit" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notifyAll" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notifyAll():Unit"></a>
+      <span class="permalink">
+      <a href="../../../com/koddi/geocoder/Geocoder$.html#notifyAll():Unit" title="Permalink">
+        <i class="material-icons"></i>
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="scala.AnyRef#notifyAll" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="notifyAll():Unit"></a>
-      <a id="notifyAll():Unit"></a>
-      <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier">final </span>
         <span class="kind">def</span>
@@ -635,16 +844,15 @@
       <span class="symbol">
         <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.koddi.geocoder.Geocoder$@notifyAll():Unit" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#synchronized" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="synchronized[T0](x$1:=&gt;T0):T0"></a><a id="synchronized[T0](⇒T0):T0"></a>
+      <span class="permalink">
+      <a href="../../../com/koddi/geocoder/Geocoder$.html#synchronized[T0](x$1:=&gt;T0):T0" title="Permalink">
+        <i class="material-icons"></i>
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
-      <a id="synchronized[T0](⇒T0):T0"></a>
-      <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier">final </span>
         <span class="kind">def</span>
@@ -652,16 +860,15 @@
       <span class="symbol">
         <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
       </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.koddi.geocoder.Geocoder$@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#toString" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toString():String"></a>
+      <span class="permalink">
+      <a href="../../../com/koddi/geocoder/Geocoder$.html#toString():String" title="Permalink">
+        <i class="material-icons"></i>
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="scala.AnyRef#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="toString():String"></a>
-      <a id="toString():String"></a>
-      <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
@@ -669,16 +876,15 @@
       <span class="symbol">
         <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
       </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.koddi.geocoder.Geocoder$@toString():String" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait():Unit"></a>
+      <span class="permalink">
+      <a href="../../../com/koddi/geocoder/Geocoder$.html#wait():Unit" title="Permalink">
+        <i class="material-icons"></i>
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="wait():Unit"></a>
-      <a id="wait():Unit"></a>
-      <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier">final </span>
         <span class="kind">def</span>
@@ -686,11 +892,7 @@
       <span class="symbol">
         <span class="name">wait</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.koddi.geocoder.Geocoder$@wait():Unit" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
+      
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">(<span>
       
@@ -698,10 +900,13 @@
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="wait(x$1:Long,x$2:Int):Unit"></a>
-      <a id="wait(Long,Int):Unit"></a>
-      <h4 class="signature">
+    </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long,x$2:Int):Unit"></a><a id="wait(Long,Int):Unit"></a>
+      <span class="permalink">
+      <a href="../../../com/koddi/geocoder/Geocoder$.html#wait(x$1:Long,x$2:Int):Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
       <span class="modifier_kind">
         <span class="modifier">final </span>
         <span class="kind">def</span>
@@ -709,11 +914,7 @@
       <span class="symbol">
         <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.koddi.geocoder.Geocoder$@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
+      
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">(<span>
       
@@ -721,10 +922,13 @@
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="wait(x$1:Long):Unit"></a>
-      <a id="wait(Long):Unit"></a>
-      <h4 class="signature">
+    </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long):Unit"></a><a id="wait(Long):Unit"></a>
+      <span class="permalink">
+      <a href="../../../com/koddi/geocoder/Geocoder$.html#wait(x$1:Long):Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
       <span class="modifier_kind">
         <span class="modifier">final </span>
         <span class="kind">def</span>
@@ -732,11 +936,7 @@
       <span class="symbol">
         <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.koddi.geocoder.Geocoder$@wait(x$1:Long):Unit" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
+      
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">(<span>
       
@@ -744,7 +944,8 @@
     </span>)</span>
               
         </dd></dl></div>
-    </li></ol>
+    </li>
+              </ol>
             </div>
 
         
@@ -773,7 +974,9 @@
       <div id="tooltip"></div>
 
       <div id="footer">  </div>
-
-
+    </body>
+          </div>
+        </div>
+      </div>
     </body>
       </html>
