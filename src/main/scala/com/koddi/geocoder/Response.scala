@@ -105,7 +105,7 @@ case class Result(
  */
 case class Response(status: String, results: Seq[Result], errorMessage: Option[String]) {
 
-    val success: Boolean = status == "OK"
+    val success: Boolean = status == "OK" || status == "ZERO_RESULTS"
 
     val hasNoResults: Boolean = status == "ZERO_RESULTS"
 }
