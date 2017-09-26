@@ -28,16 +28,6 @@ class AsyncGeocoderSpec extends TestSpec {
         Await.ready(query, 5.seconds)
     }
 
-    it should "trigger a failure when an invalid address is given" in {
-        val geocoder = new AsyncGeocoder(new MockGeocoder("api_response_invalid.xml"))
-        val query = geocoder.lookup("NONE INVALID ADDRESS") 
-        query onComplete {
-            case Success(_) => fail
-            case Failure(error) => error should not be(null)
-        }
-        Await.ready(query, 5.seconds)
-    }
-
     it should "reverse lookup lat/lng values and trigger a success" in {
         val geocoder = new AsyncGeocoder(new MockGeocoder("api_response_latlng.xml"))
         val query = geocoder.lookup(32.7505842, -97.3574015)
@@ -47,16 +37,6 @@ class AsyncGeocoderSpec extends TestSpec {
                 address should be("2821 W 7th St, Fort Worth, TX 76107, USA")
             }
             case Failure(_) => fail
-        }
-        Await.ready(query, 5.seconds)
-    }
-
-    it should "trigger a failure when an invalid lat/lng is given" in {
-        val geocoder = new AsyncGeocoder(new MockGeocoder("api_response_invalid.xml"))
-        val query = geocoder.lookup(-900d, -900d)
-        query onComplete {
-            case Success(_) => fail
-            case Failure(error) => error should not be(null)
         }
         Await.ready(query, 5.seconds)
     }
@@ -76,6 +56,26 @@ class AsyncGeocoderSpec extends TestSpec {
             }
             case Failure(_) => fail
         }
+    }
+
+    it should "return an empty result sequence when the response has zero results" in {
+        val geocoder = new AsyncGeocoder(new MockGeocoder("api_response_zero_results.xml"))
+        val query = geocoder.lookup("NONE INVALID ADDRESS")
+        query onComplete {
+            case Success(results) => results should be(Seq.empty[Result])
+            case Failure(error) => fail
+        }
+        Await.ready(query, 5.seconds)
+    }
+
+    it should "trigger a failure when an invalid lat/lng is given" in {
+        val geocoder = new AsyncGeocoder(new MockGeocoder("api_response_invalid.xml"))
+        val query = geocoder.lookup(-900d, -900d)
+        query onComplete {
+            case Success(_) => fail
+            case Failure(error) => error should not be(null)
+        }
+        Await.ready(query, 5.seconds)
     }
 
     private def loseAccuracy(value: Double): Long = Math.round(value)
