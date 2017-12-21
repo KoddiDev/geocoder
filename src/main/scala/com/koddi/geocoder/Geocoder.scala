@@ -130,7 +130,7 @@ class Geocoder(apiUrl: String, apiKey: Option[String], parameters: Option[Parame
             response.status match {
                 case Response.STATUS_OVER_QUERY_LIMIT => throw new OverQueryLimitException(message)
                 case Response.STATUS_INVALID_REQUEST  => throw new InvalidRequestException(message)
-                case _ => throw new InvalidLocationException(message)
+                case status => throw new FailedResponseException(status, message)
             }
         }
 

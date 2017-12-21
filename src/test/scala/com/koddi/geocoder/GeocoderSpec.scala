@@ -46,8 +46,13 @@ class GeocoderSpec extends TestSpec {
 
     it should "throw an exception when an invalid lat/lng is given" in {
         val geocoder = new MockGeocoder("api_response_invalid.xml")
-        an [InvalidLocationException] should be thrownBy {
-            geocoder.lookup(-900d, -900d)
+        try {
+            geocoder.lookup(900, -900)
+        } catch {
+            case e: FailedResponseException => {
+                e.status should be("FAILED")
+            }
+            case e: Exception => fail()
         }
     }
 
