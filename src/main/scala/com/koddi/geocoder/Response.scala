@@ -98,6 +98,14 @@ case class Result(
     partialMatch: Boolean,
     types: Seq[String])
 
+object Response {
+    val STATUS_OK = "OK"
+    val STATUS_FAILED = "FAILED"
+    val STATUS_ZERO_RESULTS = "ZERO_RESULTS"
+    val STATUS_OVER_QUERY_LIMIT = "OVER_QUERY_LIMIT"
+    val STATUS_INVALID_REQUEST = "INVALID_REQUEST"
+}
+
 /** The Google Maps response wrapper
  *
  * This entity represents the JSON response returned from
@@ -105,8 +113,10 @@ case class Result(
  */
 case class Response(status: String, results: Seq[Result], errorMessage: Option[String]) {
 
-    val success: Boolean = status == "OK" || status == "ZERO_RESULTS"
+    val success: Boolean = status == Response.STATUS_OK || status == Response.STATUS_ZERO_RESULTS
 
-    val hasNoResults: Boolean = status == "ZERO_RESULTS"
+    val hasNoResults: Boolean = status == Response.STATUS_ZERO_RESULTS
+
+    val isRateLimited: Boolean = status == Response.STATUS_OVER_QUERY_LIMIT
 }
 
