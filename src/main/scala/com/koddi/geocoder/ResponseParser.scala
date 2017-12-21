@@ -34,6 +34,8 @@ class ResponseParser {
 
     private def readResults(node: NodeSeq): Seq[Result] = {
         node.map{ result =>
+            val types = (result \ "type").map(_.text.trim).toSeq
+
             Result(
                 text(result, "place_id"),
                 text(result, "formatted_address"),
@@ -41,7 +43,7 @@ class ResponseParser {
                 readAddressComponents(result),
                 readPostcodeLocalities(result),
                 boolean(result, "partial_match"),
-                Seq(text(result, "type"))
+                types
             )
         }
     }
