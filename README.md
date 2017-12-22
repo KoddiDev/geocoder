@@ -8,7 +8,7 @@ easy to use geocoding functions that are thoroughly tested.
 
 ### Goals
 
-- No 3rd-party dependencies (`scala-xml` is required for projects building on `2.11.x`)
+- No 3rd-party dependencies (`scala-xml` is required for projects building on `2.11.x+`)
 - Fully unit tested
 - API Compliant
 - Easy to use and integrate
@@ -18,7 +18,7 @@ easy to use geocoding functions that are thoroughly tested.
 Include the following in your `build.sbt`
 
 ```
-libraryDependencies += "com.koddi" %% "geocoder" % "1.0.2"
+libraryDependencies += "com.koddi" %% "geocoder" % "1.1.0"
 ```
 
 And then import the classes into your code

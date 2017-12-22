@@ -2,7 +2,7 @@ name := "geocoder"
 
 organization := "com.koddi"
 
-version := "1.0.2"
+version := "1.1.0"
 
 scalaVersion := "2.11.7"
 

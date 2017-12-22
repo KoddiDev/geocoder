@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GeocodeResponse>
+ <status>OVER_QUERY_LIMIT</status>
+ <error_message>You have exceeded your daily request quota for this API. We recommend registering for a key at the Google Developers Console: https://console.developers.google.com/apis/credentials?project=_</error_message>
+ <results></results>
+</GeocodeResponse>

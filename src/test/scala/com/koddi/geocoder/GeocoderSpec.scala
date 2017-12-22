@@ -46,8 +46,27 @@ class GeocoderSpec extends TestSpec {
 
     it should "throw an exception when an invalid lat/lng is given" in {
         val geocoder = new MockGeocoder("api_response_invalid.xml")
-        an [InvalidLocationException] should be thrownBy {
-            geocoder.lookup(-900d, -900d)
+        try {
+            geocoder.lookup(900, -900)
+        } catch {
+            case e: FailedResponseException => {
+                e.status should be("FAILED")
+            }
+            case e: Exception => fail()
+        }
+    }
+
+    it should "throw an exception when an invalid request is sent" in {
+        val geocoder = new MockGeocoder("api_response_invalid_request.xml")
+        an [InvalidRequestException] should be thrownBy {
+            geocoder.lookup("abc ;; 123")
+        }
+    }
+
+    it should "throw an exception when the client has exceeded the rate limit" in {
+        val geocoder = new MockGeocoder("api_response_over_query_limit.xml")
+        an [OverQueryLimitException] should be thrownBy {
+            geocoder.lookup("abc ;; 123")
         }
     }
 

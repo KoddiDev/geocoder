@@ -126,7 +126,12 @@ class Geocoder(apiUrl: String, apiKey: Option[String], parameters: Option[Parame
                 case Some(error) => error
                 case None => s"${searchParam.capitalize} '${searchValue}' could not be geocoded."
             }
-            throw new InvalidLocationException(message)
+
+            response.status match {
+                case Response.STATUS_OVER_QUERY_LIMIT => throw new OverQueryLimitException(message)
+                case Response.STATUS_INVALID_REQUEST  => throw new InvalidRequestException(message)
+                case status => throw new FailedResponseException(status, message)
+            }
         }
 
         if (response.hasNoResults) {
