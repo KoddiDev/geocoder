@@ -70,3 +70,8 @@ publishTo := {
             Some("releases"  at nexus + "service/local/staging/deploy/maven2")
 }
 
+// Must be set to PGP keys
+pgpSecretRing := file("~/.sbt/gpg/secring.asc")
+pgpPublicRing := file("~/.sbt/gpg/pubring.asc")
+
+
