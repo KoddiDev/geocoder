@@ -160,6 +160,14 @@
                           CountryComponent
                         </a>
                       </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="class" href="FailedResponseException.html" title="Thrown when the API returns a generic error
+"></a>
+                        <a href="FailedResponseException.html" title="Thrown when the API returns a generic error
+">
+                          FailedResponseException
+                        </a>
+                      </li><li class="current-entities indented3">
                         <a class="object" href="Geocoder$.html" title="Factory for com.koddi.geocoder.Geocoder instances."></a>
                         <a class="class" href="Geocoder.html" title="Converts strings and addresses to latitude/longitude values."></a>
                         <a href="Geocoder.html" title="Converts strings and addresses to latitude/longitude values.">
@@ -179,9 +187,9 @@
                         </a>
                       </li><li class="current-entities indented3">
                         <span class="separator"></span>
-                        <a class="class" href="InvalidLocationException.html" title=""></a>
-                        <a href="InvalidLocationException.html" title="">
-                          InvalidLocationException
+                        <a class="class" href="InvalidRequestException.html" title="Thrown when the API returns INVALID_REQUEST status."></a>
+                        <a href="InvalidRequestException.html" title="Thrown when the API returns INVALID_REQUEST status.">
+                          InvalidRequestException
                         </a>
                       </li><li class="current-entities indented3">
                         <span class="separator"></span>
@@ -203,6 +211,12 @@
                         </a>
                       </li><li class="current-entities indented3">
                         <span class="separator"></span>
+                        <a class="class" href="OverQueryLimitException.html" title="Thrown when the API returns OVER_QUERY_LIMIT status."></a>
+                        <a href="OverQueryLimitException.html" title="Thrown when the API returns OVER_QUERY_LIMIT status.">
+                          OverQueryLimitException
+                        </a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
                         <a class="class" href="Parameters.html" title=""></a>
                         <a href="Parameters.html" title="">
                           Parameters
@@ -214,7 +228,7 @@
                           PostalCodeComponent
                         </a>
                       </li><li class="current-entities indented3">
-                        <span class="separator"></span>
+                        <a class="object" href="Response$.html" title=""></a>
                         <a class="class" href="Response.html" title="The Google Maps response wrapper"></a>
                         <a href="Response.html" title="The Google Maps response wrapper">
                           Response
@@ -227,8 +241,10 @@
                         </a>
                       </li><li class="current-entities indented3">
                         <span class="separator"></span>
-                        <a class="class" href="ResponseParsingException.html" title=""></a>
-                        <a href="ResponseParsingException.html" title="">
+                        <a class="class" href="ResponseParsingException.html" title="Thrown when the response contains an invalid payload that cannot be parsed by the XML reader
+"></a>
+                        <a href="ResponseParsingException.html" title="Thrown when the response contains an invalid payload that cannot be parsed by the XML reader
+">
                           ResponseParsingException
                         </a>
                       </li><li class="current-entities indented3">
@@ -421,6 +437,26 @@ contain the return values from the wrapper <a href="Geocoder.html" class="extype
       </span>
       
       <p class="shortcomment cmt">Serializes to &quot;country=value&quot;</p>
+    </li><li name="com.koddi.geocoder.FailedResponseException" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="FailedResponseExceptionextendsExceptionwithProductwithSerializable"></a><a id="FailedResponseException:FailedResponseException"></a>
+      <span class="permalink">
+      <a href="../../../com/koddi/geocoder/index.html#FailedResponseExceptionextendsExceptionwithProductwithSerializable" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a title="Thrown when the API returns a generic error
+" href="FailedResponseException.html">
+              <span class="name">FailedResponseException</span>
+            </a><span class="params">(<span name="status">status: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="message">message: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Exception">Exception</span> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      
+      <p class="shortcomment cmt">Thrown when the API returns a generic error
+</p>
     </li><li name="com.koddi.geocoder.Geocoder" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="GeocoderextendsAnyRef"></a><a id="Geocoder:Geocoder"></a>
       <span class="permalink">
@@ -478,24 +514,25 @@ and a <a href="Result.html" class="extype" name="com.koddi.geocoder.Result">com.
       
       <p class="shortcomment cmt">Bounding points the represent opposite edges of a square.</p><div class="fullcomment"><div class="comment cmt"><p>Bounding points the represent opposite edges of a square.
 </p></div><dl class="paramcmts block"><dt class="param">northeast</dt><dd class="cmt"><p>the upper right coordinate of the square</p></dd><dt class="param">southwest</dt><dd class="cmt"><p>the lower left coordinate of the square</p></dd></dl></div>
-    </li><li name="com.koddi.geocoder.InvalidLocationException" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="InvalidLocationExceptionextendsException"></a><a id="InvalidLocationException:InvalidLocationException"></a>
+    </li><li name="com.koddi.geocoder.InvalidRequestException" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="InvalidRequestExceptionextendsExceptionwithProductwithSerializable"></a><a id="InvalidRequestException:InvalidRequestException"></a>
       <span class="permalink">
-      <a href="../../../com/koddi/geocoder/index.html#InvalidLocationExceptionextendsException" title="Permalink">
+      <a href="../../../com/koddi/geocoder/index.html#InvalidRequestExceptionextendsExceptionwithProductwithSerializable" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">class</span>
+        <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a title="" href="InvalidLocationException.html">
-              <span class="name">InvalidLocationException</span>
-            </a><span class="result"> extends <span class="extype" name="scala.Exception">Exception</span></span>
+        <a title="Thrown when the API returns INVALID_REQUEST status." href="InvalidRequestException.html">
+              <span class="name">InvalidRequestException</span>
+            </a><span class="params">(<span name="message">message: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Exception">Exception</span> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       
-      
+      <p class="shortcomment cmt">Thrown when the API returns INVALID_REQUEST status.</p><div class="fullcomment"><div class="comment cmt"><p>Thrown when the API returns INVALID_REQUEST status. Will contain the applicable error message.
+</p></div></div>
     </li><li name="com.koddi.geocoder.InvalidResponseException" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="InvalidResponseExceptionextendsException"></a><a id="InvalidResponseException:InvalidResponseException"></a>
       <span class="permalink">
@@ -552,6 +589,25 @@ and a <a href="Result.html" class="extype" name="com.koddi.geocoder.Result">com.
       <p class="shortcomment cmt">Simple wrapper for storing latitude and longitude values</p><div class="fullcomment"><div class="comment cmt"><p>Simple wrapper for storing latitude and longitude values</p><p>Internally the <code>toString()</code> method is overriden
 so it can write the latitude/longitude values as a
 coordinate string.
+</p></div></div>
+    </li><li name="com.koddi.geocoder.OverQueryLimitException" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="OverQueryLimitExceptionextendsExceptionwithProductwithSerializable"></a><a id="OverQueryLimitException:OverQueryLimitException"></a>
+      <span class="permalink">
+      <a href="../../../com/koddi/geocoder/index.html#OverQueryLimitExceptionextendsExceptionwithProductwithSerializable" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a title="Thrown when the API returns OVER_QUERY_LIMIT status." href="OverQueryLimitException.html">
+              <span class="name">OverQueryLimitException</span>
+            </a><span class="params">(<span name="message">message: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Exception">Exception</span> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      
+      <p class="shortcomment cmt">Thrown when the API returns OVER_QUERY_LIMIT status.</p><div class="fullcomment"><div class="comment cmt"><p>Thrown when the API returns OVER_QUERY_LIMIT status. Will contain the applicable error message.
 </p></div></div>
     </li><li name="com.koddi.geocoder.Parameters" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="ParametersextendsProductwithSerializable"></a><a id="Parameters:Parameters"></a>
@@ -629,23 +685,25 @@ the Google Maps API.
       <p class="shortcomment cmt">Parses Google Maps XML responses and converts them into <a href="Response.html" class="extype" name="com.koddi.geocoder.Response">com.koddi.geocoder.Response</a>.</p><div class="fullcomment"><div class="comment cmt"><p>Parses Google Maps XML responses and converts them into <a href="Response.html" class="extype" name="com.koddi.geocoder.Response">com.koddi.geocoder.Response</a>.
 </p></div><dl class="attributes block"> <dt>See also</dt><dd><span class="cmt"><p>https://developers.google.com/maps/documentation/geocoding/intro#Results</p></span></dd></dl></div>
     </li><li name="com.koddi.geocoder.ResponseParsingException" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="ResponseParsingExceptionextendsException"></a><a id="ResponseParsingException:ResponseParsingException"></a>
+      <a id="ResponseParsingExceptionextendsExceptionwithProductwithSerializable"></a><a id="ResponseParsingException:ResponseParsingException"></a>
       <span class="permalink">
-      <a href="../../../com/koddi/geocoder/index.html#ResponseParsingExceptionextendsException" title="Permalink">
+      <a href="../../../com/koddi/geocoder/index.html#ResponseParsingExceptionextendsExceptionwithProductwithSerializable" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">class</span>
+        <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a title="" href="ResponseParsingException.html">
+        <a title="Thrown when the response contains an invalid payload that cannot be parsed by the XML reader
+" href="ResponseParsingException.html">
               <span class="name">ResponseParsingException</span>
-            </a><span class="result"> extends <span class="extype" name="scala.Exception">Exception</span></span>
+            </a><span class="params">(<span name="e">e: <span class="extype" name="scala.Exception">Exception</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Exception">Exception</span> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       
-      
+      <p class="shortcomment cmt">Thrown when the response contains an invalid payload that cannot be parsed by the XML reader
+</p>
     </li><li name="com.koddi.geocoder.Result" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="ResultextendsProductwithSerializable"></a><a id="Result:Result"></a>
       <span class="permalink">
@@ -762,6 +820,24 @@ the Google Maps API.
       </span>
       
       <p class="shortcomment cmt">Provides constants related to <a href="Location.html" class="extype" name="com.koddi.geocoder.Location">com.koddi.geocoder.Location</a></p>
+    </li><li name="com.koddi.geocoder.Response" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Response"></a><a id="Response:Response"></a>
+      <span class="permalink">
+      <a href="../../../com/koddi/geocoder/index.html#Response" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="Response$.html">
+              <span class="name">Response</span>
+            </a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      
+      
     </li>
               </ol>
             </div>

@@ -162,6 +162,14 @@
                           CountryComponent
                         </a>
                       </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="class" href="FailedResponseException.html" title="Thrown when the API returns a generic error
+"></a>
+                        <a href="FailedResponseException.html" title="Thrown when the API returns a generic error
+">
+                          FailedResponseException
+                        </a>
+                      </li><li class="current-entities indented3">
                         <a class="object" href="Geocoder$.html" title="Factory for com.koddi.geocoder.Geocoder instances."></a>
                         <a class="class" href="Geocoder.html" title="Converts strings and addresses to latitude/longitude values."></a>
                         <a href="Geocoder.html" title="Converts strings and addresses to latitude/longitude values.">
@@ -181,9 +189,9 @@
                         </a>
                       </li><li class="current-entities indented3">
                         <span class="separator"></span>
-                        <a class="class" href="InvalidLocationException.html" title=""></a>
-                        <a href="InvalidLocationException.html" title="">
-                          InvalidLocationException
+                        <a class="class" href="InvalidRequestException.html" title="Thrown when the API returns INVALID_REQUEST status."></a>
+                        <a href="InvalidRequestException.html" title="Thrown when the API returns INVALID_REQUEST status.">
+                          InvalidRequestException
                         </a>
                       </li><li class="current-entities indented3">
                         <span class="separator"></span>
@@ -205,6 +213,12 @@
                         </a>
                       </li><li class="current-entities indented3">
                         <span class="separator"></span>
+                        <a class="class" href="OverQueryLimitException.html" title="Thrown when the API returns OVER_QUERY_LIMIT status."></a>
+                        <a href="OverQueryLimitException.html" title="Thrown when the API returns OVER_QUERY_LIMIT status.">
+                          OverQueryLimitException
+                        </a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
                         <a class="class" href="Parameters.html" title=""></a>
                         <a href="Parameters.html" title="">
                           Parameters
@@ -216,7 +230,7 @@
                           PostalCodeComponent
                         </a>
                       </li><li class="current-entities indented3">
-                        <span class="separator"></span>
+                        <a class="object" href="Response$.html" title=""></a>
                         <a class="class" href="Response.html" title="The Google Maps response wrapper"></a>
                         <a href="Response.html" title="The Google Maps response wrapper">
                           Response
@@ -229,8 +243,10 @@
                         </a>
                       </li><li class="current-entities indented3">
                         <span class="separator"></span>
-                        <a class="class" href="" title=""></a>
-                        <a href="" title="">
+                        <a class="class" href="" title="Thrown when the response contains an invalid payload that cannot be parsed by the XML reader
+"></a>
+                        <a href="" title="Thrown when the response contains an invalid payload that cannot be parsed by the XML reader
+">
                           ResponseParsingException
                         </a>
                       </li><li class="current-entities indented3">
@@ -265,19 +281,20 @@
       <h4 id="signature" class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">class</span>
+        <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <span class="name">ResponseParsingException</span><span class="result"> extends <span class="extype" name="scala.Exception">Exception</span></span>
+        <span class="name">ResponseParsingException</span><span class="params">(<span name="e">e: <span class="extype" name="scala.Exception">Exception</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Exception">Exception</span> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
 
       
-          <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Thrown when the response contains an invalid payload that cannot be parsed by the XML reader
+</p></div><div class="toggleContainer block">
           <span class="toggle">
             Linear Supertypes
           </span>
-          <div class="superTypes hiddenContent"><span class="extype" name="java.lang.Exception">Exception</span>, <span class="extype" name="java.lang.Throwable">Throwable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="scala.Product">Product</span>, <span class="extype" name="scala.Equals">Equals</span>, <span class="extype" name="java.lang.Exception">Exception</span>, <span class="extype" name="java.lang.Throwable">Throwable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
         
 
@@ -303,7 +320,7 @@
                   <span class="filtertype">Inherited<br />
                   </span>
                   <ol id="linearization">
-                    <li class="in" name="com.koddi.geocoder.ResponseParsingException"><span>ResponseParsingException</span></li><li class="in" name="java.lang.Exception"><span>Exception</span></li><li class="in" name="java.lang.Throwable"><span>Throwable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                    <li class="in" name="com.koddi.geocoder.ResponseParsingException"><span>ResponseParsingException</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="scala.Product"><span>Product</span></li><li class="in" name="scala.Equals"><span>Equals</span></li><li class="in" name="java.lang.Exception"><span>Exception</span></li><li class="in" name="java.lang.Throwable"><span>Throwable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                   </ol>
                 </div><div class="ancestors">
               <span class="filtertype"></span>
@@ -451,6 +468,22 @@
     </span>)</span>
               
         </dd></dl></div>
+    </li><li name="com.koddi.geocoder.ResponseParsingException#e" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="e:Exception"></a>
+      <span class="permalink">
+      <a href="../../../com/koddi/geocoder/ResponseParsingException.html#e:Exception" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">e</span><span class="result">: <span class="extype" name="scala.Exception">Exception</span></span>
+      </span>
+      
+      
     </li><li name="scala.AnyRef#eq" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a><a id="eq(AnyRef):Boolean"></a>
       <span class="permalink">
@@ -467,22 +500,6 @@
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="scala.AnyRef#equals" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="equals(x$1:Any):Boolean"></a><a id="equals(Any):Boolean"></a>
-      <span class="permalink">
-      <a href="../../../com/koddi/geocoder/ResponseParsingException.html#equals(x$1:Any):Boolean" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
-      </span>
-      
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="java.lang.Throwable#fillInStackTrace" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="fillInStackTrace():Throwable"></a>
       <span class="permalink">
@@ -617,22 +634,6 @@
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Throwable</dd></dl></div>
-    </li><li name="scala.AnyRef#hashCode" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="hashCode():Int"></a>
-      <span class="permalink">
-      <a href="../../../com/koddi/geocoder/ResponseParsingException.html#hashCode():Int" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
-      </span>
-      
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="java.lang.Throwable#initCause" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="initCause(x$1:Throwable):Throwable"></a><a id="initCause(Throwable):Throwable"></a>
       <span class="permalink">
@@ -885,7 +886,13 @@
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="java.lang.Exception">
+        <div class="parent" name="scala.Serializable">
+              <h3>Inherited from <span class="extype" name="scala.Serializable">Serializable</span></h3>
+            </div><div class="parent" name="scala.Product">
+              <h3>Inherited from <span class="extype" name="scala.Product">Product</span></h3>
+            </div><div class="parent" name="scala.Equals">
+              <h3>Inherited from <span class="extype" name="scala.Equals">Equals</span></h3>
+            </div><div class="parent" name="java.lang.Exception">
               <h3>Inherited from <span class="extype" name="java.lang.Exception">Exception</span></h3>
             </div><div class="parent" name="java.lang.Throwable">
               <h3>Inherited from <span class="extype" name="java.lang.Throwable">Throwable</span></h3>
