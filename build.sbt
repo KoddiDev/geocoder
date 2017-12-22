@@ -71,7 +71,7 @@ publishTo := {
 }
 
 // Must be set to PGP keys
-pgpSecretRing := file("~/.sbt/gpg/secring.asc")
-pgpPublicRing := file("~/.sbt/gpg/pubring.asc")
+//pgpSecretRing := file("~/.sbt/gpg/secring.asc")
+//pgpPublicRing := file("~/.sbt/gpg/pubring.asc")
 
 
